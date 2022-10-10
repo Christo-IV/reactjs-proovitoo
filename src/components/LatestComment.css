@@ -1,0 +1,10 @@
+.latest-comment {
+  border-left: 2px solid var(--accent-color);
+  padding: 0.2rem 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.postedOn {
+  margin-top: 0.5rem;
+  color: var(--faded-txt);
+}

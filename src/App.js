@@ -4,12 +4,15 @@ import Navbar from "./components/Navbar";
 import Post from "./components/Post";
 import Header from "./components/Header";
 import Snippet from "./components/Snippet";
+import LatestComment from "./components/LatestComment";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [events, setEvents] = useState([]);
   const [birthdays, setBirthdays] = useState([]);
   const [newcomers, setNewcomers] = useState([]);
+  const [latestComments, setLatestComments] = useState([]);
+  const [linkedLatestComments, setLinkedLatestComments] = useState([]);
 
   const getData = async (filename, stateSetter) => {
     const response = await fetch(`data/${filename}.json`, {
@@ -29,7 +32,20 @@ const App = () => {
     getData("events", setEvents);
     getData("birthdays", setBirthdays);
     getData("newcomers", setNewcomers);
+    getData("comments", setLatestComments);
   }, []);
+
+  // This is used to later group comments by post
+  const postsWithComments = {};
+  useEffect(() => {
+    latestComments.forEach((comment) => {
+      if (!Object.keys(postsWithComments).includes(comment.postTitle)) {
+        postsWithComments[comment.postTitle] = [];
+      }
+      postsWithComments[comment.postTitle].push(comment);
+    });
+    setLinkedLatestComments(postsWithComments);
+  }, [latestComments]);
 
   return (
     <div className="App">
@@ -57,6 +73,17 @@ const App = () => {
             <Header title="NEWCOMERS" />
             {newcomers.map((newcomer, index) => (
               <Snippet {...newcomer} key={newcomer.name + index} />
+            ))}
+          </div>
+          <div className="collection flex">
+            <Header title="LATEST COMMENTS" />
+            {Object.keys(linkedLatestComments).map((postTitle) => (
+              <div key={postTitle}>
+                <p className="post-title">{postTitle}</p>
+                {linkedLatestComments[postTitle].map((comment, index) => (
+                  <LatestComment {...comment} key={index} />
+                ))}
+              </div>
             ))}
           </div>
         </aside>
