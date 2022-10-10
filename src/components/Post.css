@@ -1,0 +1,44 @@
+.post {
+  background-color: var(--secondary-color);
+  width: 100%;
+}
+
+.post-cover {
+  object-fit: cover;
+  width: 100%;
+}
+
+.content {
+  padding: 1rem;
+  gap: 0.9rem;
+}
+
+.published,
+.tags,
+.user-metrics {
+  color: var(--faded-txt);
+}
+
+.divider,
+.dividing-dot {
+  background-color: var(--faded-txt);
+}
+
+.tags,
+.user-metrics {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+}
+
+.dividing-dot {
+  display: inline-block;
+  height: 4px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}

@@ -1,10 +1,32 @@
-:root {
-  --primary-color: #3b5bdb;
-  --secondary-color: #ffffff;
-  --tertiary-color: #e9ecef;
-}
-
 .flex {
   display: flex;
   flex-direction: column;
+}
+
+.container {
+  width: min(100%, 1200px);
+  margin: 3.2rem auto 0;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.posts {
+  width: 100%;
+  gap: 1rem;
+}
+
+.collections {
+  width: 100%;
+  border: 1px solid rgb(255, 0, 0);
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .collections {
+    width: 66%;
+  }
 }

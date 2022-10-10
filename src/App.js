@@ -1,23 +1,41 @@
 import "./App.css";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
+import Post from "./components/Post";
 
-function App() {
+const App = () => {
+  const [posts, setPosts] = useState(Array);
+
+  const getPosts = async () => {
+    const response = await fetch("data/posts.json", {
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+      },
+    });
+
+    const result = await response.json();
+
+    setPosts(result);
+  };
+
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return (
     <div className="App">
       <Navbar />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
+      <div className="container flex">
+        <div className="posts flex">
+          {posts.map((post, index) => (
+            <Post props={post} key={index} />
+          ))}
+        </div>
+        <aside className="collections">asd</aside>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

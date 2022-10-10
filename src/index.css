@@ -1,14 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap");
 
+:root {
+  --primary-color: #3b5bdb;
+  --secondary-color: #ffffff;
+  --tertiary-color: #e9ecef;
+  --faded-txt: #696969;
+}
+
 *,
 *::before,
 *:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 
 body {
+  background-color: var(--tertiary-color);
   font-family: "Roboto Slab", serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
