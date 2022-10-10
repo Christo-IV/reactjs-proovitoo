@@ -6,6 +6,7 @@
   background-color: var(--primary-color);
   color: var(--secondary-color);
   justify-content: center;
+  z-index: 100;
 }
 
 .nav-links {

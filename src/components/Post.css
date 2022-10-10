@@ -19,8 +19,8 @@
   color: var(--faded-txt);
 }
 
-.divider,
-.dividing-dot {
+.post .divider,
+.post .dividing-dot {
   background-color: var(--faded-txt);
 }
 
@@ -31,12 +31,12 @@
   gap: 0.5rem;
 }
 
-.divider {
+.post .divider {
   height: 1px;
   width: 100%;
 }
 
-.dividing-dot {
+.post .dividing-dot {
   display: inline-block;
   height: 4px;
   aspect-ratio: 1/1;

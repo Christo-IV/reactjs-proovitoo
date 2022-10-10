@@ -7,7 +7,7 @@
   width: min(100%, 1200px);
   margin: 3.2rem auto 0;
   padding: 1rem;
-  gap: 1rem;
+  gap: 2.2rem;
 }
 
 .posts {
@@ -17,8 +17,11 @@
 
 .collections {
   width: 100%;
-  border: 1px solid rgb(255, 0, 0);
-  background-color: rgba(255, 0, 0, 0.5);
+  gap: 2.2rem;
+}
+
+.collection {
+  gap: 1.3rem;
 }
 
 @media only screen and (min-width: 800px) {

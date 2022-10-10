@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Steven Heidel",
+    "imgUrl": "https://randomuser.me/api/portraits/men/11.jpg",
+    "keywords": ["Nov 11"],
+    "date": "10.11.2021"
+  },
+  {
+    "name": "Eva Salomon",
+    "imgUrl": "https://randomuser.me/api/portraits/women/11.jpg",
+    "keywords": ["Nov 18"],
+    "date": "10.10.2020"
+  },
+  {
+    "name": "Sarah Goldstein",
+    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+    "keywords": ["Sept 1"],
+    "date": "09.01.2019"
+  }
+]

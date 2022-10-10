@@ -1,0 +1,67 @@
+.snippet {
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.snippet:nth-of-type(even) {
+  --snippet-border-color: var(--snippet1);
+}
+
+.snippet:nth-of-type(odd) {
+  --snippet-border-color: var(--snippet2);
+}
+
+.snippet-img {
+  position: relative;
+  width: 4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px var(--snippet-border-color);
+}
+
+.snippet-img > * {
+  border-radius: 50%;
+}
+
+.snippet-img > img {
+  width: inherit;
+  z-index: 10;
+}
+
+.snippet-date {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 100%;
+}
+
+.snippet-keywords {
+  flex-direction: row;
+  align-items: center;
+  color: var(--faded-txt);
+}
+
+.snippet-keyword {
+  flex-direction: inherit;
+  align-items: inherit;
+}
+
+.snippet-keyword.danger {
+  color: var(--danger);
+}
+
+.snippet-keyword.success {
+  color: var(--success);
+}
+
+.snippet .dividing-dot {
+  background-color: var(--faded-txt);
+  display: inline-block;
+  height: 4px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+}

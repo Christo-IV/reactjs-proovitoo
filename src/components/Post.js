@@ -1,8 +1,6 @@
 import "./Post.css";
 
-const Post = ({ props }) => {
-  const { title, author, date, text, tags, userMetrics } = props;
-
+const Post = ({ title, author, date, text, tags, userMetrics }) => {
   return (
     <article className="post">
       <img src="/content-imgs/map.jpg" alt="#" className="post-cover" />

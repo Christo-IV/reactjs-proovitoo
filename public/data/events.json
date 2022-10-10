@@ -1,0 +1,20 @@
+[
+  {
+    "name": "UX Tartu",
+    "keywords": ["SPARK", "Tartu"],
+    "date": "10.11.2022",
+    "going": false
+  },
+  {
+    "name": "Christmas Party",
+    "keywords": ["SPARK", "Tartu"],
+    "date": "12.20.2022",
+    "going": true
+  },
+  {
+    "name": "Refresh 2022",
+    "keywords": ["SPARK", "Tartu"],
+    "date": "09.09.2022",
+    "going": false
+  }
+]
