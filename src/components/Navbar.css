@@ -1,0 +1,72 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  justify-content: center;
+}
+
+.nav-links {
+  width: 100%;
+  display: none;
+  list-style: none;
+  flex-direction: column;
+}
+
+.nav-link,
+.hamburger-toggle {
+  height: 100%;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.hamburger-toggle:hover {
+  backdrop-filter: brightness(0.8);
+}
+
+.nav-link > a {
+  font-family: "Roboto Slab";
+  text-decoration: none;
+  color: inherit;
+}
+
+.hamburger-toggle {
+  cursor: pointer;
+  align-items: center;
+  gap: 1.2rem;
+  flex-direction: row;
+  width: fit-content;
+  color: inherit;
+  border: 0;
+  background-color: transparent;
+}
+
+.hamburger-lines {
+  gap: 0.5rem;
+  width: fit-content;
+}
+
+.hamburger-line {
+  width: 1.6rem;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.hamburger-text {
+  display: block;
+  width: fit-content;
+}
+
+@media only screen and (min-width: 800px) {
+  .hamburger-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+  }
+}
