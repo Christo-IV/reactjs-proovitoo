@@ -5,9 +5,11 @@ import Post from "./components/Post";
 import Header from "./components/Header";
 import Snippet from "./components/Snippet";
 import LatestComment from "./components/LatestComment";
+import SearchBox from "./components/SearchBox";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [events, setEvents] = useState([]);
   const [birthdays, setBirthdays] = useState([]);
   const [newcomers, setNewcomers] = useState([]);
@@ -52,9 +54,12 @@ const App = () => {
       <Navbar />
       <div className="container flex">
         <div className="posts flex">
-          {posts.map((post, index) => (
-            <Post {...post} key={index} />
-          ))}
+          <SearchBox posts={posts} setSearchResults={setSearchResults} />
+          {searchResults.length <= 0
+            ? posts.map((post, index) => <Post {...post} key={index} />)
+            : searchResults.map((post, index) => (
+                <Post {...post} key={index} />
+              ))}
         </div>
         <aside className="collections flex">
           <div className="collection flex">

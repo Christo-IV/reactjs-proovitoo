@@ -34,5 +34,29 @@
       "comments": 2,
       "views": 3
     }
+  },
+  {
+    "title": "Practical Programming",
+    "author": "Steven Heidel",
+    "date": "Apr 29, 2017",
+    "text": "The following is reformatted from a presentation I gave at LinkedIn last year. The presentation attempted to explain functional programming without using concepts like “monads” or “immutability” or “side effects”. Instead it focuses on how thinking about composition can make you a better programmer, regardless of what language you use.",
+    "tags": ["#Events", "#Programming"],
+    "userMetrics": {
+      "likes": 1,
+      "comments": 2,
+      "views": 3
+    }
+  },
+  {
+    "title": "A wildly different title for search testing",
+    "author": "Steven Heidel",
+    "date": "Apr 29, 2017",
+    "text": "The following is reformatted from a presentation I gave at LinkedIn last year. The presentation attempted to explain functional programming without using concepts like “monads” or “immutability” or “side effects”. Instead it focuses on how thinking about composition can make you a better programmer, regardless of what language you use.",
+    "tags": ["#Events", "#Programming"],
+    "userMetrics": {
+      "likes": 1,
+      "comments": 2,
+      "views": 3
+    }
   }
 ]
