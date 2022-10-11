@@ -4,8 +4,8 @@
 }
 
 .container {
-  width: min(100%, 1200px);
-  margin: 3.2rem auto 0;
+  width: min(100%, 1300px);
+  margin: 5.6rem auto 0;
   padding: 1rem;
   gap: 2.2rem;
 }

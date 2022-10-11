@@ -13,7 +13,7 @@ const Snippet = ({ name, imgUrl, keywords, date, going }) => {
         <p className="snippet-date">{dayOfMonth[2] + " " + dayOfMonth[1]}</p>
         {typeof imgUrl !== "undefined" && <img src={imgUrl} alt={name} />}
       </div>
-      <div className="snippet-content">
+      <div className="snippet-content flex">
         <h3 className="snippet-name">{name}</h3>
         <ul className="snippet-keywords flex">
           {keywords.map((keyword, index) => (

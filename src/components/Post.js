@@ -9,7 +9,7 @@ const Post = ({ title, author, date, text, tags, userMetrics }) => {
         <p className="published">
           Published by {author} on {date}
         </p>
-        <p>{text}</p>
+        <p className="post-text">{text}</p>
         <ul className="tags flex">
           {tags.map((tag, index) => (
             <li className="tag" key={tag + index}>

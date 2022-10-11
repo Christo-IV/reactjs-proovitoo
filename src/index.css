@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Roboto:wght@400;500&display=swap");
 
 :root {
   --primary-color: #3b5bdb;
@@ -23,8 +23,9 @@
 
 body {
   background-color: var(--tertiary-color);
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto", serif;
   font-weight: 400;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

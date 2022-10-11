@@ -1,7 +1,7 @@
 .snippet {
   flex-direction: row;
   align-items: center;
-  gap: 2rem;
+  gap: 1.6rem;
 }
 
 .snippet:nth-of-type(even) {
@@ -29,6 +29,15 @@
   z-index: 10;
 }
 
+.snippet-content {
+  gap: 0.2rem;
+}
+
+.snippet-name,
+.snippet-date {
+  font-weight: 500;
+}
+
 .snippet-date {
   position: absolute;
   top: 50%;
@@ -42,6 +51,7 @@
   flex-direction: row;
   align-items: center;
   color: var(--faded-txt);
+  font-size: 16px;
 }
 
 .snippet-keyword {
@@ -63,5 +73,5 @@
   height: 4px;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  margin: 0 0.5rem;
+  margin: 0 0.8rem;
 }
