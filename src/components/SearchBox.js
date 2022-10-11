@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "./SearchBox.css";
 
-const SearchBox = ({ posts, setSearchResults }) => {
+const SearchBox = ({ posts, setFilteredPosts }) => {
   const searchInput = useRef(null);
 
   const searchPosts = () => {
@@ -12,7 +12,7 @@ const SearchBox = ({ posts, setSearchResults }) => {
       if (postTitle.includes(searchMessage.toUpperCase())) return post;
     });
 
-    setSearchResults(searchResults);
+    setFilteredPosts(searchResults);
   };
 
   return (

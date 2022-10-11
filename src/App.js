@@ -9,7 +9,7 @@ import SearchBox from "./components/SearchBox";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
   const [events, setEvents] = useState([]);
   const [birthdays, setBirthdays] = useState([]);
   const [newcomers, setNewcomers] = useState([]);
@@ -37,6 +37,12 @@ const App = () => {
     getData("comments", setLatestComments);
   }, []);
 
+  useEffect(() => {
+    if (filteredPosts.length === 0) {
+      setFilteredPosts(posts);
+    }
+  }, [posts]);
+
   // This is used to later group comments by post
   const postsWithComments = {};
   useEffect(() => {
@@ -54,12 +60,10 @@ const App = () => {
       <Navbar />
       <div className="container flex">
         <div className="posts flex">
-          <SearchBox posts={posts} setSearchResults={setSearchResults} />
-          {searchResults.length <= 0
-            ? posts.map((post, index) => <Post {...post} key={index} />)
-            : searchResults.map((post, index) => (
-                <Post {...post} key={index} />
-              ))}
+          <SearchBox posts={posts} setFilteredPosts={setFilteredPosts} />
+          {filteredPosts.map((post, index) => (
+            <Post {...post} key={index} />
+          ))}
         </div>
         <aside className="collections flex">
           <div className="collection flex">
