@@ -1,9 +1,18 @@
 import "./Post.css";
 
-const Post = ({ title, author, date, text, tags, userMetrics }) => {
+const Post = ({
+  imgUrl,
+  imgAlt,
+  title,
+  author,
+  date,
+  text,
+  tags,
+  userMetrics,
+}) => {
   return (
     <article className="post">
-      <img src="/content-imgs/map.jpg" alt="#" className="post-cover" />
+      <img src={imgUrl} alt={imgAlt} className="post-cover" />
       <div className="content flex">
         <h3 className="post-title">{title}</h3>
         <p className="published">
