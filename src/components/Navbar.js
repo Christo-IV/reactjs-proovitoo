@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
   const [display, setDisplay] = useState("none");
@@ -25,16 +25,16 @@ const Navbar = () => {
         </button>
         <ul className="nav-links" style={{ display: display }}>
           <li className="nav-link">
-            <a href="#">Home</a>
+            <button>Home</button>
           </li>
           <li className="nav-link">
-            <a href="#">Blog</a>
+            <button>Blog</button>
           </li>
           <li className="nav-link">
-            <a href="#">Events</a>
+            <button>Events</button>
           </li>
           <li className="nav-link">
-            <a href="#">Gallery</a>
+            <button>Gallery</button>
           </li>
         </ul>
       </nav>

@@ -7,6 +7,9 @@ import Snippet from "./components/Snippet";
 import LatestComment from "./components/LatestComment";
 import SearchBox from "./components/SearchBox";
 
+const postsWithComments = {}; // For grouping comments by post
+let filteredPostsLength = 0;
+
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -38,13 +41,15 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (filteredPosts.length === 0) {
+    filteredPostsLength = filteredPosts.length;
+  }, [filteredPosts]);
+
+  useEffect(() => {
+    if (filteredPostsLength === 0) {
       setFilteredPosts(posts);
     }
   }, [posts]);
 
-  // This is used to later group comments by post
-  const postsWithComments = {};
   useEffect(() => {
     latestComments.forEach((comment) => {
       if (!Object.keys(postsWithComments).includes(comment.postTitle)) {
