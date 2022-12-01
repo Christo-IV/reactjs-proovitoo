@@ -4,6 +4,12 @@ import "./SearchBox.css";
 const SearchBox = ({ posts, setFilteredPosts }) => {
   const searchInput = useRef(null);
 
+  const handleKeydown = (event) => {
+    if (event.key === "Enter") {
+      searchPosts();
+    }
+  };
+
   const searchPosts = () => {
     const searchResults = posts.filter((post) => {
       const postTitle = post.title.toUpperCase();
@@ -17,8 +23,14 @@ const SearchBox = ({ posts, setFilteredPosts }) => {
 
   return (
     <div className="search-box flex">
-      <input ref={searchInput} type="text" className="text-input" />
-      <button className="search-btn" onClick={searchPosts}>
+      <input
+        ref={searchInput}
+        type="text"
+        className="text-input"
+        aria-label="Enter search text"
+        onKeyDown={handleKeydown}
+      />
+      <button className="search-btn" onClick={searchPosts} aria-label="Search">
         <span className="search-icon"></span>
       </button>
     </div>
