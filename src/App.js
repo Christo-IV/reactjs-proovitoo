@@ -7,12 +7,9 @@ import Snippet from "./components/Snippet";
 import LatestComment from "./components/LatestComment";
 import SearchBox from "./components/SearchBox";
 
-const postsWithComments = {}; // For grouping comments by post
-let filteredPostsLength = 0;
-
 const App = () => {
   const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState(undefined);
   const [events, setEvents] = useState([]);
   const [birthdays, setBirthdays] = useState([]);
   const [newcomers, setNewcomers] = useState([]);
@@ -32,6 +29,10 @@ const App = () => {
     stateSetter(result);
   };
 
+  const RenderPosts = ({ posts }) => {
+    return posts.map((post, index) => <Post {...post} key={index} />);
+  };
+
   useEffect(() => {
     getData("posts", setPosts);
     getData("events", setEvents);
@@ -40,22 +41,20 @@ const App = () => {
     getData("comments", setLatestComments);
   }, []);
 
-  useEffect(() => {
-    filteredPostsLength = filteredPosts.length;
-  }, [filteredPosts]);
+  // useEffect(() => {
+  //   if (filteredPosts.length === 0) {
+  //     setFilteredPosts(posts);
+  //   }
+  // }, [posts]);
 
   useEffect(() => {
-    if (filteredPostsLength === 0) {
-      setFilteredPosts(posts);
-    }
-  }, [posts]);
+    const allPostIds = posts.map((post) => post.id);
+    const postsWithComments = {}; // For grouping comments by post
 
-  useEffect(() => {
     latestComments.forEach((comment) => {
-      if (!Object.keys(postsWithComments).includes(comment.postTitle)) {
-        postsWithComments[comment.postTitle] = [];
+      if (allPostIds.includes(comment.postId)) {
+        console.log(comment.postId);
       }
-      postsWithComments[comment.postTitle].push(comment);
     });
     setLinkedLatestComments(postsWithComments);
   }, [latestComments]);
@@ -66,9 +65,7 @@ const App = () => {
       <div className="container flex">
         <div className="posts flex">
           <SearchBox posts={posts} setFilteredPosts={setFilteredPosts} />
-          {filteredPosts.map((post, index) => (
-            <Post post={post} key={index} />
-          ))}
+          <RenderPosts posts={filteredPosts ?? posts} />
         </div>
         <aside className="collections flex">
           <div className="collection flex">

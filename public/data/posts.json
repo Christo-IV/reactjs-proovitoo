@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "imgUrl": "/content-imgs/map.jpg",
     "imgAlt": "Visual representation of someone doing work",
     "title": "Practical Functional Programming",
@@ -14,6 +15,7 @@
     }
   },
   {
+    "id": 2,
     "imgUrl": "/content-imgs/map.jpg",
     "imgAlt": "Visual representation of someone doing work",
     "title": "Practical Functional Programming 2",
@@ -28,6 +30,7 @@
     }
   },
   {
+    "id": 3,
     "imgUrl": "/content-imgs/map.jpg",
     "imgAlt": "Visual representation of someone doing work",
     "title": "Practical Functional Programming 3",
@@ -42,6 +45,7 @@
     }
   },
   {
+    "id": 4,
     "title": "Practical Programming",
     "author": "Steven Heidel",
     "date": "Apr 29, 2017",
@@ -54,6 +58,7 @@
     }
   },
   {
+    "id": 5,
     "title": "A wildly different title for search testing",
     "author": "Steven Heidel",
     "date": "Apr 29, 2017",
