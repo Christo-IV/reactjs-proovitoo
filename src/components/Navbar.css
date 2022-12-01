@@ -16,19 +16,21 @@
   flex-direction: column;
 }
 
-.nav-link > button,
+.nav-link > a,
 .hamburger-toggle {
   height: 100%;
   padding: 1.2rem;
   cursor: pointer;
 }
 
-.nav-link > button:hover,
+.nav-link > a:hover,
 .hamburger-toggle:hover {
   backdrop-filter: brightness(0.8);
 }
 
-.nav-link > button {
+.nav-link > a {
+  text-decoration: none;
+  display: block;
   font-size: 16px;
   background-color: transparent;
   border: none;

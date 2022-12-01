@@ -25,16 +25,20 @@ const Navbar = () => {
         </button>
         <ul className="nav-links" style={{ display: display }}>
           <li className="nav-link">
-            <button>Home</button>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a href="#">Home</a>
           </li>
           <li className="nav-link">
-            <button>Blog</button>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a href="#">Blog</a>
           </li>
           <li className="nav-link">
-            <button>Events</button>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a href="#">Events</a>
           </li>
           <li className="nav-link">
-            <button>Gallery</button>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a href="#">Gallery</a>
           </li>
         </ul>
       </nav>
