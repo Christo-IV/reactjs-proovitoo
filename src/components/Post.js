@@ -14,7 +14,7 @@ const Post = ({
     <article className="post">
       <img src={imgUrl} alt={imgAlt} className="post-cover" />
       <div className="content flex">
-        <h3 className="post-title">{title}</h3>
+        <h2 className="post-title">{title}</h2>
         <p className="published">
           Published by {author} on {date}
         </p>
