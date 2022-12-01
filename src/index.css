@@ -2,14 +2,21 @@
 
 :root {
   --primary-color: #3b5bdb;
-  --secondary-color: #ffffff;
-  --tertiary-color: #e9ecef;
+  --background-color: #ffffff;
+  --bright-border-color: #efefef;
+  --body-color: #e9ecef;
   --accent-color: #364fc7;
-  --faded-txt: #696969;
-  --snippet1: #a0f4dc;
-  --snippet2: #fcd3d4;
-  --danger: #ff0000;
-  --success: #008000;
+
+  --bright-txt-color: #ffffff;
+  --dark-txt-color: #000000;
+  --faded-txt-color: #696969;
+
+  --danger-color: #ff0000;
+  --success-color: #008000;
+
+  /* Event colors */
+  --conference-color: #a0f4dc;
+  --party-color: #fcd3d4;
 }
 
 *,
@@ -22,10 +29,11 @@
 }
 
 body {
-  background-color: var(--tertiary-color);
+  background-color: var(--body-color);
   font-family: "Roboto", serif;
   font-weight: 400;
   font-size: 18px;
+  color: var(--dark-txt-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
