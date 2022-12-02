@@ -1,6 +1,7 @@
 import "./LatestComment.css";
 
-const LatestComment = ({ postTitle, comment, date, author }) => {
+const LatestComment = ({ commentObj }) => {
+  const { comment, date, author } = commentObj;
   const commentDate = new Date(date).toDateString().split(" ");
 
   return (

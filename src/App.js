@@ -38,19 +38,26 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    // Gets all post titles
+    const allPostsWithComments = latestComments.map(
+      (comment) => comment.postTitle
+    );
+
+    // Creates keys for all post titles
     const commentsByPost = {};
-
-    latestComments.forEach((comment) => {
-      const postTitle = comment.postTitle;
-      if (!Object.keys(commentsByPost).includes(postTitle)) {
-        commentsByPost[postTitle] = [];
-      }
-      commentsByPost[postTitle].push(comment);
+    allPostsWithComments.forEach((title) => {
+      commentsByPost[title] = [];
     });
-    setPostsWithComments(commentsByPost);
 
-    console.log("Posts & comments:", postsWithComments);
-  }, []);
+    // Links comments to corresponding post titles
+    latestComments.forEach((comment) => {
+      commentsByPost[comment.postTitle] = commentsByPost[
+        comment.postTitle
+      ].concat([comment]);
+    });
+
+    setPostsWithComments(commentsByPost);
+  }, [latestComments]);
 
   return (
     <div className="App">
@@ -83,14 +90,14 @@ const App = () => {
           </div>
           <div className="collection flex">
             <Header title="LATEST COMMENTS" />
-            {/* {Object.keys(postsWithComments).map((postTitle) => (
-              <div key={postTitle}>
-                <p className="post-title">{postTitle}</p>
-                {postsWithComments[postTitle].map((comment, index) => (
-                  <LatestComment {...comment} key={index} />
+            {Object.keys(postsWithComments).map((title) => (
+              <div key={title}>
+                <p className="post-title">{title}</p>
+                {postsWithComments[title].map((commentObj, index) => (
+                  <LatestComment commentObj={commentObj} key={index} />
                 ))}
               </div>
-            ))} */}
+            ))}
           </div>
         </aside>
       </div>
