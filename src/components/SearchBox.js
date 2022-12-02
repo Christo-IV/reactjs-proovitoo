@@ -28,9 +28,7 @@ const SearchBox = ({ posts, setFilteredPosts }) => {
         className="text-input"
         aria-label="Enter search text"
       />
-      <button className="search-btn" aria-label="Search" type="submit">
-        <span className="search-icon"></span>
-      </button>
+      <button className="search-btn" aria-label="Search" type="submit"></button>
     </form>
   );
 };
