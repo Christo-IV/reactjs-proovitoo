@@ -14,7 +14,7 @@ const App = () => {
   const [birthdays, setBirthdays] = useState([]);
   const [newcomers, setNewcomers] = useState([]);
   const [latestComments, setLatestComments] = useState([]);
-  const [linkedLatestComments, setLinkedLatestComments] = useState([]);
+  const [postsWithComments, setPostsWithComments] = useState({});
 
   const getData = async (filename, stateSetter) => {
     const response = await fetch(`data/${filename}.json`, {
@@ -29,10 +29,6 @@ const App = () => {
     stateSetter(result);
   };
 
-  const RenderPosts = ({ posts }) => {
-    return posts.map((post, index) => <Post {...post} key={index} />);
-  };
-
   useEffect(() => {
     getData("posts", setPosts);
     getData("events", setEvents);
@@ -41,23 +37,20 @@ const App = () => {
     getData("comments", setLatestComments);
   }, []);
 
-  // useEffect(() => {
-  //   if (filteredPosts.length === 0) {
-  //     setFilteredPosts(posts);
-  //   }
-  // }, [posts]);
-
   useEffect(() => {
-    const allPostIds = posts.map((post) => post.id);
-    const postsWithComments = {}; // For grouping comments by post
+    const commentsByPost = {};
 
     latestComments.forEach((comment) => {
-      if (allPostIds.includes(comment.postId)) {
-        console.log(comment.postId);
+      const postTitle = comment.postTitle;
+      if (!Object.keys(commentsByPost).includes(postTitle)) {
+        commentsByPost[postTitle] = [];
       }
+      commentsByPost[postTitle].push(comment);
     });
-    setLinkedLatestComments(postsWithComments);
-  }, [latestComments]);
+    setPostsWithComments(commentsByPost);
+
+    console.log("Posts & comments:", postsWithComments);
+  }, []);
 
   return (
     <div className="App">
@@ -65,7 +58,9 @@ const App = () => {
       <div className="container flex">
         <div className="posts flex">
           <SearchBox posts={posts} setFilteredPosts={setFilteredPosts} />
-          <RenderPosts posts={filteredPosts ?? posts} />
+          {(filteredPosts ?? posts).map((post, index) => (
+            <Post {...post} key={index} />
+          ))}
         </div>
         <aside className="collections flex">
           <div className="collection flex">
@@ -88,14 +83,14 @@ const App = () => {
           </div>
           <div className="collection flex">
             <Header title="LATEST COMMENTS" />
-            {Object.keys(linkedLatestComments).map((postTitle) => (
+            {/* {Object.keys(postsWithComments).map((postTitle) => (
               <div key={postTitle}>
                 <p className="post-title">{postTitle}</p>
-                {linkedLatestComments[postTitle].map((comment, index) => (
+                {postsWithComments[postTitle].map((comment, index) => (
                   <LatestComment {...comment} key={index} />
                 ))}
               </div>
-            ))}
+            ))} */}
           </div>
         </aside>
       </div>
