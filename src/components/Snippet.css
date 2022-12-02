@@ -1,7 +1,7 @@
 .snippet {
   flex-direction: row;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.5rem;
 }
 
 .conference {
@@ -30,12 +30,13 @@
 }
 
 .snippet-content {
-  gap: 0.2rem;
+  gap: 0.25rem;
 }
 
 .snippet-name,
 .snippet-date {
   font-weight: 500;
+  font-size: 1.125rem;
 }
 
 .snippet-date {
@@ -51,7 +52,6 @@
   flex-direction: row;
   align-items: center;
   color: var(--faded-txt-color);
-  font-size: 16px;
 }
 
 .snippet-keyword {
@@ -70,8 +70,8 @@
 .snippet .dividing-dot {
   background-color: var(--faded-txt-color);
   display: inline-block;
-  height: 4px;
+  height: 0.25rem;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  margin: 0 0.8rem;
+  margin: 0 0.75rem;
 }

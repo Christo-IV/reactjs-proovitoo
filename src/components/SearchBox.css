@@ -1,7 +1,7 @@
 .search-box {
   flex-direction: row;
   border-radius: 0.25rem;
-  border: 0.125rem solid var(--bright-border-color);
+  box-shadow: 0 0 0 0.125rem var(--bright-border-color);
   overflow: hidden;
 }
 
@@ -11,14 +11,14 @@
 }
 
 .text-input {
-  width: 100%;
-  padding: 0.8rem 1rem;
+  flex: 1 0 auto;
+  padding: 1rem;
   background-color: var(--background-color);
 }
 
 .search-btn {
+  flex: 0 0 4rem;
   background-color: var(--primary-color);
-  width: 4rem;
   cursor: pointer;
 }
 
@@ -29,7 +29,7 @@
   display: inline-block;
   height: 1rem;
   border-radius: 50%;
-  margin-right: 0.45rem;
+  margin-right: 0.5rem;
 }
 
 .search-icon::after,
