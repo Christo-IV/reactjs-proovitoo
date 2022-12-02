@@ -15,8 +15,8 @@
   --success-color: #008000;
 
   /* Event colors */
-  --conference-color: #a0f4dc;
-  --party-color: #fcd3d4;
+  --event-conference-color: #a0f4dc;
+  --event-party-color: #fcd3d4;
 }
 
 *,

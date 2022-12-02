@@ -5,11 +5,11 @@
 }
 
 .conference {
-  --snippet-border-color: var(--conference-color);
+  --snippet-border-color: var(--event-conference-color);
 }
 
 .party {
-  --snippet-border-color: var(--party-color);
+  --snippet-border-color: var(--event-party-color);
 }
 
 .snippet-img {
