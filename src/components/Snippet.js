@@ -1,6 +1,6 @@
 import "./Snippet.css";
 
-const Snippet = ({ name, imgUrl, keywords, date, going }) => {
+const Snippet = ({ name, type, imgUrl, keywords, date, going }) => {
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const snippetDate = new Date(date);
@@ -9,7 +9,7 @@ const Snippet = ({ name, imgUrl, keywords, date, going }) => {
 
   return (
     <div className="snippet flex">
-      <div className="snippet-img flex">
+      <div className={`snippet-img flex ${type}`}>
         <p className="snippet-date">{dayOfMonth[2] + " " + dayOfMonth[1]}</p>
         {typeof imgUrl !== "undefined" && <img src={imgUrl} alt={name} />}
       </div>

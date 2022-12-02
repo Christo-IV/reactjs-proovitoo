@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   background-color: var(--primary-color);
-  color: var(--secondary-color);
+  color: var(--bright-txt-color);
   justify-content: center;
   z-index: 100;
 }
@@ -53,7 +53,7 @@
 .hamburger-line {
   width: 1.6rem;
   height: 3px;
-  background-color: var(--secondary-color);
+  background-color: var(--bright-txt-color);
 }
 
 .hamburger-text {

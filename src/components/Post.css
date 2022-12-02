@@ -1,5 +1,5 @@
 .post {
-  background-color: var(--secondary-color);
+  background-color: var(--background-color);
   width: 100%;
 }
 
@@ -23,12 +23,12 @@
 .tags,
 .user-metrics {
   font-size: 16px;
-  color: var(--faded-txt);
+  color: var(--faded-txt-color);
 }
 
 .post .divider,
 .post .dividing-dot {
-  background-color: var(--faded-txt);
+  background-color: var(--faded-txt-color);
 }
 
 .tags,

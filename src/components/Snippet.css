@@ -4,12 +4,12 @@
   gap: 1.6rem;
 }
 
-.snippet:nth-of-type(even) {
-  --snippet-border-color: var(--snippet1);
+.conference {
+  --snippet-border-color: var(--event-conference-color);
 }
 
-.snippet:nth-of-type(odd) {
-  --snippet-border-color: var(--snippet2);
+.party {
+  --snippet-border-color: var(--event-party-color);
 }
 
 .snippet-img {
@@ -50,7 +50,7 @@
 .snippet-keywords {
   flex-direction: row;
   align-items: center;
-  color: var(--faded-txt);
+  color: var(--faded-txt-color);
   font-size: 16px;
 }
 
@@ -60,15 +60,15 @@
 }
 
 .snippet-keyword.danger {
-  color: var(--danger);
+  color: var(--danger-color);
 }
 
 .snippet-keyword.success {
-  color: var(--success);
+  color: var(--success-color);
 }
 
 .snippet .dividing-dot {
-  background-color: var(--faded-txt);
+  background-color: var(--faded-txt-color);
   display: inline-block;
   height: 4px;
   aspect-ratio: 1/1;
