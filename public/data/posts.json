@@ -1,5 +1,7 @@
 [
   {
+    "imgUrl": "/content-imgs/map.jpg",
+    "imgAlt": "Visual representation of someone doing work",
     "title": "Practical Functional Programming",
     "author": "Steven Heidel",
     "date": "Apr 29, 2017",
@@ -12,6 +14,8 @@
     }
   },
   {
+    "imgUrl": "/content-imgs/map.jpg",
+    "imgAlt": "Visual representation of someone doing work",
     "title": "Practical Functional Programming 2",
     "author": "Steven Heidel",
     "date": "Apr 29, 2017",
@@ -24,6 +28,8 @@
     }
   },
   {
+    "imgUrl": "/content-imgs/map.jpg",
+    "imgAlt": "Visual representation of someone doing work",
     "title": "Practical Functional Programming 3",
     "author": "Steven Heidel",
     "date": "Apr 29, 2017",
