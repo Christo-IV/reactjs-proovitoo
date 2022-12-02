@@ -1,15 +1,8 @@
 import "./Navbar.css";
-import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const [display, setDisplay] = useState("none");
-
-  const toggleDropdown = () => {
-    if (display === "none") {
-      setDisplay("flex");
-    } else {
-      setDisplay("none");
-    }
+  const toggleDropdown = (event) => {
+    event.currentTarget.classList.toggle("is-open");
   };
 
   return (
@@ -23,7 +16,7 @@ const Navbar = () => {
           </div>
           <p className="hamburger-text">Menu</p>
         </button>
-        <ul className="nav-links" style={{ display: display }}>
+        <ul className="nav-links">
           <li className="nav-link">
             <a href="#">Home</a>
           </li>

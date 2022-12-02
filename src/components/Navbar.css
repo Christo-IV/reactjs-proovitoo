@@ -45,6 +45,10 @@
   background-color: transparent;
 }
 
+.hamburger-toggle.is-open + .nav-links {
+  display: flex;
+}
+
 .hamburger-lines {
   gap: 0.5rem;
   width: fit-content;
