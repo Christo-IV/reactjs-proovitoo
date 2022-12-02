@@ -2,21 +2,21 @@
   {
     "postId": 1,
     "postTitle": "Practical Functional Programming",
-    "comment": "Instead it focuses on how thinking about composition can make you a better programmer.",
+    "text": "Instead it focuses on how thinking about composition can make you a better programmer.",
     "date": "11.03.2022",
     "author": "Steven Heidel"
   },
   {
     "postId": 2,
     "postTitle": "Practical Functional Programming 2",
-    "comment": "Instead it focuses on how thinking about composition can make you a better programmer.",
+    "text": "Instead it focuses on how thinking about composition can make you a better programmer.",
     "date": "11.03.2022",
     "author": "Steven Heidel"
   },
   {
     "postId": 2,
     "postTitle": "Practical Functional Programming 2",
-    "comment": "Instead it focuses on how thinking about composition can make you a better programmer.",
+    "text": "Instead it focuses on how thinking about composition can make you a better programmer.",
     "date": "11.03.2022",
     "author": "Steven Heidel"
   }
