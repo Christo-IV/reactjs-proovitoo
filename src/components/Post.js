@@ -1,15 +1,8 @@
 import "./Post.css";
 
-const Post = ({
-  imgUrl,
-  imgAlt,
-  title,
-  author,
-  date,
-  text,
-  tags,
-  userMetrics,
-}) => {
+const Post = ({ post }) => {
+  const { imgUrl, imgAlt, title, author, date, text, tags, userMetrics } = post;
+
   return (
     <article className="post">
       <img src={imgUrl} alt={imgAlt} className="post-cover" />
