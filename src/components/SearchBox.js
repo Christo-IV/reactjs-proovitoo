@@ -4,10 +4,9 @@ import "./SearchBox.css";
 const SearchBox = ({ posts, setFilteredPosts }) => {
   const searchInput = useRef(null);
 
-  const handleKeydown = (event) => {
-    if (event.key === "Enter") {
-      searchPosts();
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    searchPosts();
   };
 
   const searchPosts = () => {
@@ -22,18 +21,17 @@ const SearchBox = ({ posts, setFilteredPosts }) => {
   };
 
   return (
-    <div className="search-box flex">
+    <form className="search-box flex" onSubmit={handleSubmit}>
       <input
         ref={searchInput}
         type="text"
         className="text-input"
         aria-label="Enter search text"
-        onKeyDown={handleKeydown}
       />
-      <button className="search-btn" onClick={searchPosts} aria-label="Search">
+      <button className="search-btn" aria-label="Search" type="submit">
         <span className="search-icon"></span>
       </button>
-    </div>
+    </form>
   );
 };
 
