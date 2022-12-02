@@ -11,12 +11,12 @@
 }
 
 .posts {
-  width: 100%;
+  flex: 0 1 auto;
   gap: 1rem;
 }
 
 .collections {
-  width: 100%;
+  flex: 0 0 22rem;
   gap: 2.2rem;
 }
 
