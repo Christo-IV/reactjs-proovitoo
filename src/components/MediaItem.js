@@ -1,16 +1,17 @@
 import "./MediaItem.css";
+import { format } from "date-fns";
 
 const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
   const mediaItemDate = new Date(date);
+  const dayAndMonth = format(mediaItemDate, "dd LLL").split(" ");
 
-  const dayOfMonth = mediaItemDate.toDateString().split(" ");
+  const tomorrow = new Date();
+  tomorrow.setDate(new Date().getDate() + 1);
 
   return (
     <div className="mediaItem flex">
       <div className={`mediaItem-img flex ${type}`}>
-        <p className="mediaItem-date">{dayOfMonth[2] + " " + dayOfMonth[1]}</p>
+        <p className="mediaItem-date">{dayAndMonth.join(" ")}</p>
         {imgUrl && <img src={imgUrl} alt={name} />}
       </div>
       <div className="mediaItem-content flex">
@@ -20,7 +21,9 @@ const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
             <>
               {index % 2 === 1 && <span className="dividing-dot"></span>}
               <li className="mediaItem-keyword flex" key={name + index}>
-                {keyword}
+                {keyword === "mediaDate"
+                  ? [...dayAndMonth].reverse().join(" ")
+                  : keyword}
               </li>
             </>
           ))}
