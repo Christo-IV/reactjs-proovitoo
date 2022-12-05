@@ -1,14 +1,23 @@
 import "./Navbar.css";
+import classNames from "classnames";
+import { useState } from "react";
 
 const Navbar = () => {
-  const toggleDropdown = (event) => {
-    event.currentTarget.classList.toggle("is-open");
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsNavMenuOpen(!isNavMenuOpen);
   };
 
   return (
     <header>
       <nav className="navbar flex">
-        <button className="hamburger-toggle flex" onClick={toggleDropdown}>
+        <button
+          className={classNames("hamburger-toggle flex", {
+            "is-open": isNavMenuOpen,
+          })}
+          onClick={toggleDropdown}
+        >
           <div className="hamburger-lines flex">
             <span className="hamburger-line"></span>
             <span className="hamburger-line"></span>
