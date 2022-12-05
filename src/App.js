@@ -62,7 +62,7 @@ const App = () => {
         <div className="posts flex">
           <SearchBox posts={posts} setFilteredPosts={setFilteredPosts} />
           {filteredPosts.map((post, index) => (
-            <Post {...post} key={index} />
+            <Post post={post} key={index} />
           ))}
         </div>
         <aside className="collections flex">
