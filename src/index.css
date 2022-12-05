@@ -17,6 +17,8 @@
   /* Event colors */
   --event-conference-color: #a0f4dc;
   --event-party-color: #fcd3d4;
+
+  font-size: 16px;
 }
 
 *,
@@ -32,7 +34,6 @@ body {
   background-color: var(--body-color);
   font-family: "Roboto", serif;
   font-weight: 400;
-  font-size: 18px;
   color: var(--dark-txt-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
