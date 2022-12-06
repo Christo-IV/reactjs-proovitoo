@@ -92,7 +92,7 @@ const App = () => {
             <Header title="LATEST COMMENTS" />
             {Object.keys(postsWithComments).map((title) => (
               <div key={title}>
-                <p className="post-title">{title}</p>
+                <p className="comment-title">{title}</p>
                 {postsWithComments[title].map((comment, index) => (
                   <LatestComment comment={comment} key={index} />
                 ))}
