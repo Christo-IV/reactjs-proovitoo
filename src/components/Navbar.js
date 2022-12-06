@@ -1,21 +1,23 @@
 import "./Navbar.css";
-import { useState, useEffect } from "react";
+import classNames from "classnames";
+import { useState } from "react";
 
 const Navbar = () => {
-  const [display, setDisplay] = useState("none");
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
 
   const toggleDropdown = () => {
-    if (display === "none") {
-      setDisplay("flex");
-    } else {
-      setDisplay("none");
-    }
+    setIsNavMenuOpen(!isNavMenuOpen);
   };
 
   return (
     <header>
       <nav className="navbar flex">
-        <button className="hamburger-toggle flex" onClick={toggleDropdown}>
+        <button
+          className={classNames("hamburger-toggle flex", {
+            "is-open": isNavMenuOpen,
+          })}
+          onClick={toggleDropdown}
+        >
           <div className="hamburger-lines flex">
             <span className="hamburger-line"></span>
             <span className="hamburger-line"></span>
@@ -23,7 +25,7 @@ const Navbar = () => {
           </div>
           <p className="hamburger-text">Menu</p>
         </button>
-        <ul className="nav-links" style={{ display: display }}>
+        <ul className="nav-links">
           <li className="nav-link">
             <a href="#">Home</a>
           </li>

@@ -5,7 +5,7 @@
 
 .container {
   width: min(100%, 1300px);
-  margin: 5.6rem auto 0;
+  margin: 7rem auto 0;
   padding: 1rem;
   gap: 2.2rem;
 }
@@ -17,15 +17,11 @@
 
 .collections {
   flex: 0 0 22rem;
-  gap: 2.2rem;
+  gap: 2.25rem;
 }
 
 .collection {
-  gap: 1.3rem;
-}
-
-.post-title {
-  margin-bottom: 0.4rem;
+  gap: 1.5rem;
 }
 
 @media only screen and (min-width: 800px) {
