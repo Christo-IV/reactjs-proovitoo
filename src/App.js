@@ -9,12 +9,12 @@ import SearchBox from "./components/SearchBox";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState(undefined);
   const [events, setEvents] = useState([]);
   const [birthdays, setBirthdays] = useState([]);
   const [newcomers, setNewcomers] = useState([]);
   const [latestComments, setLatestComments] = useState([]);
-  const [linkedLatestComments, setLinkedLatestComments] = useState([]);
+  const [postsWithComments, setPostsWithComments] = useState({});
 
   const getData = async (filename, stateSetter) => {
     const response = await fetch(`data/${filename}.json`, {
@@ -38,21 +38,25 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (filteredPosts.length === 0) {
-      setFilteredPosts(posts);
-    }
-  }, [posts]);
+    // Gets all post titles
+    const allPostsWithComments = latestComments.map(
+      (comment) => comment.postTitle
+    );
 
-  // This is used to later group comments by post
-  const postsWithComments = {};
-  useEffect(() => {
-    latestComments.forEach((comment) => {
-      if (!Object.keys(postsWithComments).includes(comment.postTitle)) {
-        postsWithComments[comment.postTitle] = [];
-      }
-      postsWithComments[comment.postTitle].push(comment);
+    // Creates keys for all post titles
+    const commentsByPost = {};
+    allPostsWithComments.forEach((title) => {
+      commentsByPost[title] = [];
     });
-    setLinkedLatestComments(postsWithComments);
+
+    // Links comments to corresponding post titles
+    latestComments.forEach((comment) => {
+      commentsByPost[comment.postTitle] = commentsByPost[
+        comment.postTitle
+      ].concat([comment]);
+    });
+
+    setPostsWithComments(commentsByPost);
   }, [latestComments]);
 
   return (
@@ -61,7 +65,7 @@ const App = () => {
       <div className="container flex">
         <div className="posts flex">
           <SearchBox posts={posts} setFilteredPosts={setFilteredPosts} />
-          {filteredPosts.map((post, index) => (
+          {(filteredPosts ?? posts).map((post, index) => (
             <Post post={post} key={index} />
           ))}
         </div>
@@ -86,11 +90,11 @@ const App = () => {
           </div>
           <div className="collection flex">
             <Header title="LATEST COMMENTS" />
-            {Object.keys(linkedLatestComments).map((postTitle) => (
-              <div key={postTitle}>
-                <p className="comment-title">{postTitle}</p>
-                {linkedLatestComments[postTitle].map((comment, index) => (
-                  <LatestComment {...comment} key={index} />
+            {Object.keys(postsWithComments).map((title) => (
+              <div key={title}>
+                <p className="comment-title">{title}</p>
+                {postsWithComments[title].map((comment, index) => (
+                  <LatestComment comment={comment} key={index} />
                 ))}
               </div>
             ))}

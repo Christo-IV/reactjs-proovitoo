@@ -14,7 +14,7 @@ const SearchBox = ({ posts, setFilteredPosts }) => {
       const postTitle = post.title.toUpperCase();
       const searchMessage = searchInput.current.value;
 
-      if (postTitle.includes(searchMessage.toUpperCase())) return post;
+      return postTitle.includes(searchMessage.toUpperCase()) ? post : undefined;
     });
 
     setFilteredPosts(searchResults);

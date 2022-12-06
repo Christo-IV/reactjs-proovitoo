@@ -21,7 +21,7 @@
   flex-direction: column;
 }
 
-.nav-link,
+.nav-link > a,
 .hamburger-toggle {
   font-size: 1.125rem;
   height: 100%;
@@ -29,14 +29,20 @@
   cursor: pointer;
 }
 
-.nav-link:hover,
+.nav-link > a:hover,
 .hamburger-toggle:hover {
   backdrop-filter: brightness(0.8);
 }
 
 .nav-link > a {
   text-decoration: none;
+  display: block;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
   color: inherit;
+  width: 100%;
+  text-align: left;
 }
 
 .hamburger-toggle {
