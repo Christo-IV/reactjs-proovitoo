@@ -2,7 +2,7 @@ import "./Navbar.css";
 import classNames from "classnames";
 import { useState } from "react";
 
-const Navbar = () => {
+export const Navbar = () => {
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -49,5 +49,3 @@ const Navbar = () => {
     </header>
   );
 };
-
-export default Navbar;

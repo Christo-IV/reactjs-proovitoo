@@ -1,7 +1,7 @@
 import "./MediaItem.css";
 import { format, add } from "date-fns";
 
-const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
+export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
   const mediaItemDate = new Date(date);
 
   const tomorrowFns = add(new Date(), { days: 1 });
@@ -42,5 +42,3 @@ const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
     </div>
   );
 };
-
-export default MediaItem;
