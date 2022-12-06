@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Post from "./components/Post";
 import Header from "./components/Header";
-import Snippet from "./components/Snippet";
+import MediaItem from "./components/MediaItem";
 import LatestComment from "./components/LatestComment";
 import SearchBox from "./components/SearchBox";
 
@@ -69,19 +69,19 @@ const App = () => {
           <div className="collection flex">
             <Header title="EVENTS" />
             {events.map((event, index) => (
-              <Snippet {...event} key={event.name + index} />
+              <MediaItem {...event} key={event.name + index} />
             ))}
           </div>
           <div className="collection flex">
             <Header title="BIRTHDAYS" />
             {birthdays.map((birthday, index) => (
-              <Snippet {...birthday} key={birthday.name + index} />
+              <MediaItem {...birthday} key={birthday.name + index} />
             ))}
           </div>
           <div className="collection flex">
             <Header title="NEWCOMERS" />
             {newcomers.map((newcomer, index) => (
-              <Snippet {...newcomer} key={newcomer.name + index} />
+              <MediaItem {...newcomer} key={newcomer.name + index} />
             ))}
           </div>
           <div className="collection flex">

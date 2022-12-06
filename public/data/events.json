@@ -3,21 +3,21 @@
     "name": "UX Tartu",
     "type": "conference",
     "keywords": ["SPARK", "Tartu"],
-    "date": "10.11.2022",
+    "date": "2022-12-11T00:00:00+02:00",
     "going": false
   },
   {
     "name": "Christmas Party",
     "type": "party",
     "keywords": ["SPARK", "Tartu"],
-    "date": "12.20.2022",
+    "date": "2022-12-20T00:00:00+02:00",
     "going": true
   },
   {
     "name": "Refresh 2022",
     "type": "conference",
     "keywords": ["SPARK", "Tartu"],
-    "date": "09.09.2022",
+    "date": "2022-09-09T00:00:00+02:00",
     "going": false
   }
 ]
