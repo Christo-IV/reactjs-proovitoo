@@ -1,11 +1,10 @@
 import "./MediaItem.css";
-import { format } from "date-fns";
+import { format, add } from "date-fns";
 
 const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
   const mediaItemDate = new Date(date);
 
-  const tomorrow = new Date();
-  tomorrow.setDate(new Date().getDate() + 1);
+  const tomorrowFns = add(new Date(), { days: 1 });
 
   return (
     <div className="mediaItem flex">
@@ -32,7 +31,7 @@ const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
               <li className="mediaItem-keyword success">Going</li>
             </>
           )}
-          {tomorrow.toDateString() === mediaItemDate.toDateString() && (
+          {tomorrowFns.toDateString() === mediaItemDate.toDateString() && (
             <>
               <span className="dividing-dot"></span>
               <li className="mediaItem-keyword danger">Tomorrow</li>
