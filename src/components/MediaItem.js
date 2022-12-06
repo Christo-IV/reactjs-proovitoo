@@ -3,7 +3,6 @@ import { format } from "date-fns";
 
 const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
   const mediaItemDate = new Date(date);
-  const dayAndMonth = format(mediaItemDate, "dd LLL").split(" ");
 
   const tomorrow = new Date();
   tomorrow.setDate(new Date().getDate() + 1);
@@ -11,7 +10,7 @@ const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
   return (
     <div className="mediaItem flex">
       <div className={`mediaItem-img flex ${type}`}>
-        <p className="mediaItem-date">{dayAndMonth.join(" ")}</p>
+        <p className="mediaItem-date">{format(mediaItemDate, "dd LLL")}</p>
         {imgUrl && <img src={imgUrl} alt={name} />}
       </div>
       <div className="mediaItem-content flex">
@@ -22,7 +21,7 @@ const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
               {index % 2 === 1 && <span className="dividing-dot"></span>}
               <li className="mediaItem-keyword flex" key={name + index}>
                 {keyword === "mediaDate"
-                  ? [...dayAndMonth].reverse().join(" ")
+                  ? format(mediaItemDate, "LLL dd")
                   : keyword}
               </li>
             </>
