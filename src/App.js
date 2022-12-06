@@ -88,7 +88,7 @@ const App = () => {
             <Header title="LATEST COMMENTS" />
             {Object.keys(linkedLatestComments).map((postTitle) => (
               <div key={postTitle}>
-                <p className="post-title">{postTitle}</p>
+                <p className="comment-title">{postTitle}</p>
                 {linkedLatestComments[postTitle].map((comment, index) => (
                   <LatestComment {...comment} key={index} />
                 ))}
