@@ -1,6 +1,6 @@
 import "./LatestComment.css";
 
-const LatestComment = ({ comment }) => {
+export const LatestComment = ({ comment }) => {
   const { text, date, author } = comment;
   const commentDate = new Date(date).toDateString().split(" ");
 
@@ -11,5 +11,3 @@ const LatestComment = ({ comment }) => {
     </div>
   );
 };
-
-export default LatestComment;

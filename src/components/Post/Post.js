@@ -1,6 +1,6 @@
 import "./Post.css";
 
-const Post = ({ post }) => {
+export const Post = ({ post }) => {
   const { imgUrl, imgAlt, title, author, date, text, tags, userMetrics } = post;
 
   return (
@@ -31,5 +31,3 @@ const Post = ({ post }) => {
     </article>
   );
 };
-
-export default Post;

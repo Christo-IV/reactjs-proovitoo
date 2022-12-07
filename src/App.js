@@ -1,11 +1,11 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
-import Post from "./components/Post";
-import Header from "./components/Header";
-import MediaItem from "./components/MediaItem";
-import LatestComment from "./components/LatestComment";
-import SearchBox from "./components/SearchBox";
+import { Navbar } from "./components/Navbar/Navbar";
+import { Post } from "./components/Post/Post";
+import { Header } from "./components/Header/Header";
+import { MediaItem } from "./components/MediaItem/MediaItem";
+import { LatestComment } from "./components/LatestComment/LatestComment";
+import { SearchBox } from "./components/SearchBox/SearchBox";
 
 const App = () => {
   const [posts, setPosts] = useState([]);

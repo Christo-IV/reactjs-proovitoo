@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "./SearchBox.css";
 
-const SearchBox = ({ posts, setFilteredPosts }) => {
+export const SearchBox = ({ posts, setFilteredPosts }) => {
   const searchInput = useRef(null);
 
   const handleSubmit = (event) => {
@@ -32,5 +32,3 @@ const SearchBox = ({ posts, setFilteredPosts }) => {
     </form>
   );
 };
-
-export default SearchBox;

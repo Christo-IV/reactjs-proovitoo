@@ -1,6 +1,6 @@
 import "./Header.css";
 
-const Header = ({ title }) => {
+export const Header = ({ title }) => {
   return (
     <div className="header">
       <h2 className="heading">{title}</h2>
@@ -8,5 +8,3 @@ const Header = ({ title }) => {
     </div>
   );
 };
-
-export default Header;
