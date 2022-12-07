@@ -1,4 +1,4 @@
-import "./MediaItem.css";
+import "./MediaItem.scss";
 import { format, add } from "date-fns";
 
 export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {

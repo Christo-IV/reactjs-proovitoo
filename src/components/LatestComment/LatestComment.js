@@ -1,4 +1,4 @@
-import "./LatestComment.css";
+import "./LatestComment.scss";
 
 export const LatestComment = ({ comment }) => {
   const { text, date, author } = comment;

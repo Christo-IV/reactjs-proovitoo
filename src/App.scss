@@ -1,10 +1,15 @@
+@use "partials/colors";
+@use "partials/variables";
+
+$max-container-width: 1200px;
+
 .flex {
   display: flex;
   flex-direction: column;
 }
 
 .container {
-  width: min(100%, 1300px);
+  width: variables.$max-container-width;
   margin: 7rem auto 0;
   padding: 1rem;
   gap: 2.2rem;
@@ -27,9 +32,5 @@
 @media only screen and (min-width: 800px) {
   .container {
     flex-direction: row;
-  }
-
-  .collections {
-    width: 66%;
   }
 }

@@ -1,0 +1,15 @@
+@use "/src/partials/colors";
+
+.latest-comment {
+  border-left: 0.125rem solid colors.$accent;
+  padding: 0 0.5rem;
+
+  * + & {
+    margin-top: 0.5rem;
+  }
+}
+
+.postedOn {
+  margin-top: 0.5rem;
+  color: colors.$faded-txt;
+}

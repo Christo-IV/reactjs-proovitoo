@@ -1,18 +1,20 @@
+@use "/src/partials/colors";
+@use "/src/partials/variables";
+
 .navbar {
-  font-family: "Roboto";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--primary-color);
-  color: var(--bright-txt-color);
+  background-color: colors.$primary;
+  color: colors.$bright-txt;
   justify-content: center;
   z-index: 100;
 }
 
 .nav-content {
   margin: 0 auto;
-  width: min(100%, 1300px);
+  width: variables.$max-container-width;
 }
 
 .nav-links {

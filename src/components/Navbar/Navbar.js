@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "./Navbar.scss";
 import classNames from "classnames";
 import { useState } from "react";
 
