@@ -1,5 +1,6 @@
 import styles from "./Navbar.module.scss";
 import { useState } from "react";
+import classNames from "classnames";
 
 export const Navbar = () => {
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
@@ -13,9 +14,9 @@ export const Navbar = () => {
       <nav className={`${styles["navbar"]} flex`}>
         <div className={styles["nav-content"]}>
           <button
-            className={`${styles["hamburger-toggle"]} flex ${
-              isNavMenuOpen && styles["is-open"]
-            }`}
+            className={classNames(` ${styles["hamburger-toggle"]} flex`, {
+              [styles["is-open"]]: isNavMenuOpen,
+            })}
             onClick={toggleDropdown}
           >
             <div className={`${styles["hamburger-lines"]} flex`}>
