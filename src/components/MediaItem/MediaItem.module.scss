@@ -19,6 +19,12 @@
     aspect-ratio: 1;
     border-radius: 50%;
     margin: 0 0.75rem;
+
+    @media only screen and (min-width: 800px) {
+      &:nth-of-type(3) {
+        opacity: 0;
+      }
+    }
   }
 }
 
@@ -77,11 +83,5 @@
 
   &.success {
     color: colors.$success;
-  }
-}
-
-@media only screen and (min-width: 800px) {
-  .mediaItem .dividing-dot:nth-of-type(3) {
-    opacity: 0;
   }
 }

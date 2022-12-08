@@ -11,6 +11,10 @@
   margin: 7rem auto 0;
   padding: 1rem;
   gap: 2.2rem;
+
+  @media only screen and (min-width: 800px) {
+    flex-direction: row;
+  }
 }
 
 .posts {
@@ -25,10 +29,4 @@
 
 .collection {
   gap: 1.5rem;
-}
-
-@media only screen and (min-width: 800px) {
-  .container {
-    flex-direction: row;
-  }
 }
