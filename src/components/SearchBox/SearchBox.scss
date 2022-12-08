@@ -1,7 +1,9 @@
+@use "/src/partials/colors";
+
 .search-box {
   flex-direction: row;
   border-radius: 0.25rem;
-  box-shadow: 0 0 0 0.125rem var(--bright-border-color);
+  box-shadow: 0 0 0 0.125rem colors.$bright-border;
   overflow: hidden;
 }
 
@@ -13,13 +15,13 @@
 .text-input {
   flex: 1 0 auto;
   padding: 1rem;
-  background-color: var(--background-color);
+  background-color: colors.$background;
 }
 
 .search-btn {
   flex: 0 0 4rem;
-  background-color: var(--primary-color);
-  background-image: url("/public/icons/search.svg");
+  background-color: colors.$primary;
+  background-image: url("/icons/search.svg");
   background-repeat: no-repeat;
   background-position: center center;
   width: 4rem;

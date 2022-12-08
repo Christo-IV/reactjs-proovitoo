@@ -1,8 +1,6 @@
 @use "partials/colors";
 @use "partials/variables";
 
-$max-container-width: 1200px;
-
 .flex {
   display: flex;
   flex-direction: column;

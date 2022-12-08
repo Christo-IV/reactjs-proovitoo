@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "./SearchBox.css";
+import "./SearchBox.scss";
 
 export const SearchBox = ({ posts, setFilteredPosts }) => {
   const searchInput = useRef(null);

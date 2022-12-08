@@ -1,0 +1,61 @@
+@use "/src/partials/colors";
+
+.post {
+  background-color: colors.$background;
+  width: 100%;
+
+  & .post-title {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.625rem;
+    letter-spacing: 0.02em;
+  }
+
+  & .divider,
+  & .dividing-dot {
+    background-color: colors.$faded-txt;
+  }
+
+  & .divider {
+    height: 1px;
+    width: 100%;
+  }
+
+  & .dividing-dot {
+    display: inline-block;
+    height: 0.25rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+  }
+}
+
+.post-cover {
+  object-fit: cover;
+  width: 100%;
+}
+
+.content {
+  padding: 1rem;
+  gap: 1.1875rem;
+}
+
+.published,
+.tags,
+.user-metrics {
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  color: colors.$faded-txt;
+}
+
+.post-text {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+
+.tags,
+.user-metrics {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}

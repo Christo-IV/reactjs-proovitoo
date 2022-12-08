@@ -1,4 +1,4 @@
-import "./Post.css";
+import "./Post.scss";
 
 export const Post = ({ post }) => {
   const { imgUrl, imgAlt, title, author, date, text, tags, userMetrics } = post;

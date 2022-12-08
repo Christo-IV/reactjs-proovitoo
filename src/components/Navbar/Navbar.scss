@@ -56,10 +56,10 @@
   color: inherit;
   border: 0;
   background-color: transparent;
-}
 
-.hamburger-toggle.is-open + .nav-links {
-  display: flex;
+  &.is-open + .nav-links {
+    display: flex;
+  }
 }
 
 .hamburger-lines {
@@ -70,7 +70,7 @@
 .hamburger-line {
   width: 1.375rem;
   height: 0.125rem;
-  background-color: var(--bright-txt-color);
+  background-color: colors.$bright-txt;
 }
 
 .hamburger-text {
@@ -85,7 +85,7 @@
   }
 
   .nav-links {
-    display: flex !important;
+    display: flex;
     flex-direction: row;
   }
 
