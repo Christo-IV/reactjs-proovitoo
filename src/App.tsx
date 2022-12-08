@@ -6,6 +6,7 @@ import { Header } from "./components/Header/Header";
 import { MediaItem } from "./components/MediaItem/MediaItem";
 import { LatestComment } from "./components/LatestComment/LatestComment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
+import React from "react";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
