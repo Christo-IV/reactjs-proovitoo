@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "./SearchBox.scss";
+import styles from "./SearchBox.module.scss";
 
 export const SearchBox = ({ posts, setFilteredPosts }) => {
   const searchInput = useRef(null);
@@ -21,14 +21,18 @@ export const SearchBox = ({ posts, setFilteredPosts }) => {
   };
 
   return (
-    <form className="search-box flex" onSubmit={handleSubmit}>
+    <form className={`${styles["search-box"]} flex`} onSubmit={handleSubmit}>
       <input
         ref={searchInput}
         type="text"
-        className="text-input"
+        className={styles["text-input"]}
         aria-label="Enter search text"
       />
-      <button className="search-btn" aria-label="Search" type="submit"></button>
+      <button
+        className={styles["search-btn"]}
+        aria-label="Search"
+        type="submit"
+      ></button>
     </form>
   );
 };

@@ -22,7 +22,7 @@
   }
 }
 
-.mediaItem-img {
+.img {
   position: relative;
   width: 4rem;
   height: 4rem;
@@ -39,17 +39,17 @@
   }
 }
 
-.mediaItem-content {
+.content {
   gap: 0.25rem;
 }
 
-.mediaItem-name,
-.mediaItem-date {
+.name,
+.date {
   font-weight: 500;
   font-size: 1.125rem;
 }
 
-.mediaItem-date {
+.date {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -58,7 +58,7 @@
   line-height: 100%;
 }
 
-.mediaItem-keywords {
+.keywords {
   flex-direction: row;
   align-items: center;
   color: var(--faded-txt-color);
@@ -67,7 +67,7 @@
   flex-wrap: wrap;
 }
 
-.mediaItem-keyword {
+.keyword {
   flex-direction: inherit;
   align-items: inherit;
 

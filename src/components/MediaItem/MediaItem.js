@@ -1,4 +1,4 @@
-import "./MediaItem.scss";
+import styles from "./MediaItem.module.scss";
 import { format, add } from "date-fns";
 
 export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
@@ -7,18 +7,22 @@ export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
   const tomorrowFns = add(new Date(), { days: 1 });
 
   return (
-    <div className="mediaItem flex">
-      <div className={`mediaItem-img flex ${type}`}>
-        <p className="mediaItem-date">{format(mediaItemDate, "dd LLL")}</p>
+    <div className={`${styles["mediaItem"]} flex`}>
+      <div className={`${styles["img"]} flex ${type}`}>
+        <p className={`${styles["date"]} flex`}>
+          {format(mediaItemDate, "dd LLL")}
+        </p>
         {imgUrl && <img src={imgUrl} alt={name} />}
       </div>
-      <div className="mediaItem-content flex">
-        <h3 className="mediaItem-name">{name}</h3>
-        <ul className="mediaItem-keywords flex">
+      <div className={`${styles["content"]} flex`}>
+        <h3 className={styles["name"]}>{name}</h3>
+        <ul className={`${styles["keywords"]} flex`}>
           {keywords.map((keyword, index) => (
             <>
-              {index % 2 === 1 && <span className="dividing-dot"></span>}
-              <li className="mediaItem-keyword flex" key={name + index}>
+              {index % 2 === 1 && (
+                <span className={styles["dividing-dot"]}></span>
+              )}
+              <li className={`${styles["keyword"]} flex`} key={name + index}>
                 {keyword === "mediaDate"
                   ? format(mediaItemDate, "LLL dd")
                   : keyword}
@@ -27,14 +31,18 @@ export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
           ))}
           {going && (
             <>
-              <span className="dividing-dot"></span>
-              <li className="mediaItem-keyword success">Going</li>
+              <span className={styles["dividing-dot"]}></span>
+              <li className={`${styles["keyword"]} ${styles["success"]}`}>
+                Going
+              </li>
             </>
           )}
           {tomorrowFns.toDateString() === mediaItemDate.toDateString() && (
             <>
-              <span className="dividing-dot"></span>
-              <li className="mediaItem-keyword danger">Tomorrow</li>
+              <span className={styles["dividing-dot"]}></span>
+              <li className={`${styles["keyword"]} ${styles["danger"]}`}>
+                Tomorrow
+              </li>
             </>
           )}
         </ul>
