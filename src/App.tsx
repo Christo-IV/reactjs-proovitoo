@@ -9,7 +9,7 @@ import {
   ILatestComment,
 } from "./components/LatestComment/LatestComment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
-import React from "react";
+import React, { Dispatch } from "react";
 
 interface IPostsWithComments {
   [key: string]: ILatestComment[];
@@ -28,7 +28,10 @@ export const App = () => {
     IPostsWithComments
   >({});
 
-  const getData = async <String, T>(filename: String, stateSetter: T) => {
+  const getData = async <String, T>(
+    filename: String,
+    stateSetter: Dispatch<T>
+  ) => {
     const response = await fetch(`data/${filename}.json`, {
       headers: {
         "Content-type": "application/json",
