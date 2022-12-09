@@ -1,6 +1,27 @@
+import React from "react";
 import "./Post.css";
 
-export const Post = ({ post }) => {
+interface props {
+  post: IPost;
+}
+
+export interface IPost {
+  id: number;
+  imgUrl: string;
+  imgAlt: string;
+  title: string;
+  author: string;
+  date: string;
+  text: string;
+  tags: string[];
+  userMetrics: {
+    likes: number;
+    comments: number;
+    views: number;
+  };
+}
+
+export const Post = ({ post }: props) => {
   const { imgUrl, imgAlt, title, author, date, text, tags, userMetrics } = post;
 
   return (

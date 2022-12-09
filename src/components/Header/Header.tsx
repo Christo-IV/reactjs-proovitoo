@@ -1,6 +1,11 @@
+import React from "react";
 import "./Header.css";
 
-export const Header = ({ title }) => {
+interface Props {
+  title: string;
+}
+
+export const Header = ({ title }: Props) => {
   return (
     <div className="header">
       <h2 className="heading">{title}</h2>

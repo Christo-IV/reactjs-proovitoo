@@ -1,23 +1,34 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar/Navbar";
-import { Post } from "./components/Post/Post";
+import { Post, IPost } from "./components/Post/Post";
 import { Header } from "./components/Header/Header";
-import { MediaItem } from "./components/MediaItem/MediaItem";
-import { LatestComment } from "./components/LatestComment/LatestComment";
+import { MediaItem, IMediaItem } from "./components/MediaItem/MediaItem";
+import {
+  LatestComment,
+  ILatestComment,
+} from "./components/LatestComment/LatestComment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
 import React from "react";
 
-const App = () => {
-  const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState(undefined);
-  const [events, setEvents] = useState([]);
-  const [birthdays, setBirthdays] = useState([]);
-  const [newcomers, setNewcomers] = useState([]);
-  const [latestComments, setLatestComments] = useState([]);
-  const [postsWithComments, setPostsWithComments] = useState({});
+interface IPostsWithComments {
+  [key: string]: ILatestComment[];
+}
 
-  const getData = async (filename, stateSetter) => {
+export const App = () => {
+  const [posts, setPosts] = useState<IPost[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<IPost[] | undefined>(
+    undefined
+  );
+  const [events, setEvents] = useState<IMediaItem[]>([]);
+  const [birthdays, setBirthdays] = useState<IMediaItem[]>([]);
+  const [newcomers, setNewcomers] = useState<IMediaItem[]>([]);
+  const [latestComments, setLatestComments] = useState<ILatestComment[]>([]);
+  const [postsWithComments, setPostsWithComments] = useState<
+    IPostsWithComments
+  >({});
+
+  const getData = async <String, T>(filename: String, stateSetter: T) => {
     const response = await fetch(`data/${filename}.json`, {
       headers: {
         "Content-type": "application/json",
@@ -41,12 +52,12 @@ const App = () => {
   useEffect(() => {
     // Gets all post titles
     const allPostsWithComments = latestComments.map(
-      (comment) => comment.postTitle
+      (comment: ILatestComment) => comment.postTitle
     );
 
     // Creates keys for all post titles
-    const commentsByPost = {};
-    allPostsWithComments.forEach((title) => {
+    const commentsByPost: IPostsWithComments = {};
+    allPostsWithComments.forEach((title: string) => {
       commentsByPost[title] = [];
     });
 
@@ -66,27 +77,27 @@ const App = () => {
       <div className="container flex">
         <div className="posts flex">
           <SearchBox posts={posts} setFilteredPosts={setFilteredPosts} />
-          {(filteredPosts ?? posts).map((post, index) => (
+          {(filteredPosts ?? posts).map((post: IPost, index: number) => (
             <Post post={post} key={index} />
           ))}
         </div>
         <aside className="collections flex">
           <div className="collection flex">
             <Header title="EVENTS" />
-            {events.map((event, index) => (
-              <MediaItem {...event} key={event.name + index} />
+            {events.map((event, index: number) => (
+              <MediaItem mediaItem={event} key={event.name + index} />
             ))}
           </div>
           <div className="collection flex">
             <Header title="BIRTHDAYS" />
-            {birthdays.map((birthday, index) => (
-              <MediaItem {...birthday} key={birthday.name + index} />
+            {birthdays.map((birthday, index: number) => (
+              <MediaItem mediaItem={birthday} key={birthday.name + index} />
             ))}
           </div>
           <div className="collection flex">
             <Header title="NEWCOMERS" />
-            {newcomers.map((newcomer, index) => (
-              <MediaItem {...newcomer} key={newcomer.name + index} />
+            {newcomers.map((newcomer, index: number) => (
+              <MediaItem mediaItem={newcomer} key={newcomer.name + index} />
             ))}
           </div>
           <div className="collection flex">
@@ -94,9 +105,11 @@ const App = () => {
             {Object.keys(postsWithComments).map((title) => (
               <div key={title}>
                 <p className="comment-title">{title}</p>
-                {postsWithComments[title].map((comment, index) => (
-                  <LatestComment comment={comment} key={index} />
-                ))}
+                {postsWithComments[title].map(
+                  (comment: ILatestComment, index: number) => (
+                    <LatestComment comment={comment} key={index} />
+                  )
+                )}
               </div>
             ))}
           </div>
@@ -105,5 +118,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

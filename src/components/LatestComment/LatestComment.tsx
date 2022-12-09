@@ -1,6 +1,18 @@
+import React from "react";
 import "./LatestComment.css";
 
-export const LatestComment = ({ comment }) => {
+interface Props {
+  comment: ILatestComment;
+}
+
+export interface ILatestComment {
+  text: string;
+  date: string;
+  author: string;
+  postTitle: string;
+}
+
+export const LatestComment = ({ comment }: Props) => {
   const { text, date, author } = comment;
   const commentDate = new Date(date).toDateString().split(" ");
 

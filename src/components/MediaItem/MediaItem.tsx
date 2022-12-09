@@ -1,7 +1,23 @@
 import "./MediaItem.css";
 import { format, add } from "date-fns";
+import React from "react";
 
-export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
+interface Props {
+  mediaItem: IMediaItem;
+}
+
+export interface IMediaItem {
+  name: string;
+  type: string;
+  imgUrl: string;
+  keywords: string[];
+  date: string;
+  going: boolean;
+}
+
+export const MediaItem = ({ mediaItem }: Props) => {
+  const { name, type, imgUrl, keywords, date, going } = mediaItem;
+
   const mediaItemDate = new Date(date);
 
   const tomorrowFns = add(new Date(), { days: 1 });

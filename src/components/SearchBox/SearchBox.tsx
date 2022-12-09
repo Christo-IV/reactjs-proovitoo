@@ -1,10 +1,17 @@
 import { useRef } from "react";
 import "./SearchBox.css";
+import { IPost } from "../Post/Post";
+import React, { Dispatch, SetStateAction } from "react";
 
-export const SearchBox = ({ posts, setFilteredPosts }) => {
-  const searchInput = useRef(null);
+interface ISearchBox {
+  posts: IPost[];
+  setFilteredPosts: Dispatch<SetStateAction<IPost[] | undefined>>;
+}
 
-  const handleSubmit = (event) => {
+export const SearchBox = ({ posts, setFilteredPosts }: ISearchBox) => {
+  const searchInput = useRef<HTMLInputElement>(null);
+
+  const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     searchPosts();
   };
@@ -12,7 +19,7 @@ export const SearchBox = ({ posts, setFilteredPosts }) => {
   const searchPosts = () => {
     const searchResults = posts.filter((post) => {
       const postTitle = post.title.toUpperCase();
-      const searchMessage = searchInput.current.value;
+      const searchMessage = searchInput.current!.value;
 
       return postTitle.includes(searchMessage.toUpperCase()) ? post : undefined;
     });
