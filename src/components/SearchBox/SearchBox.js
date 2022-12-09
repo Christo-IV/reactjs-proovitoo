@@ -21,15 +21,15 @@ export const SearchBox = ({ posts, setFilteredPosts }) => {
   };
 
   return (
-    <form className={`${styles["search-box"]} flex`} onSubmit={handleSubmit}>
+    <form className={`${styles["search"]} flex`} onSubmit={handleSubmit}>
       <input
         ref={searchInput}
         type="text"
-        className={styles["text-input"]}
+        className={styles["search__text-input"]}
         aria-label="Enter search text"
       />
       <button
-        className={styles["search-btn"]}
+        className={styles["search__button"]}
         aria-label="Search"
         type="submit"
       ></button>

@@ -5,26 +5,26 @@ export const Post = ({ post }) => {
 
   return (
     <article className={styles["post"]}>
-      <img src={imgUrl} alt={imgAlt} className={styles["cover"]} />
+      <img src={imgUrl} alt={imgAlt} className={styles["post__cover"]} />
       <div className={`${styles["content"]} flex`}>
-        <h2 className={styles["title"]}>{title}</h2>
-        <p className={styles["published"]}>
+        <h2 className={styles["content__title"]}>{title}</h2>
+        <p className={styles["content__published"]}>
           Published by {author} on {date}
         </p>
-        <p className={styles["text"]}>{text}</p>
-        <ul className={`${styles["tags"]} flex`}>
+        <p className={styles["content__text"]}>{text}</p>
+        <ul className={`${styles["content__tags"]} flex`}>
           {tags.map((tag, index) => (
             <li className={styles.tag} key={tag + index}>
               {tag}
             </li>
           ))}
         </ul>
-        <span className={styles["divider"]}></span>
-        <div className={`${styles["user-metrics"]} flex`}>
+        <span className={styles["content__divider"]}></span>
+        <div className={`${styles["metrics"]} flex`}>
           <p>{userMetrics.likes} like</p>
-          <span className={styles["dividing-dot"]}></span>
+          <span className={styles["metrics__dividing-dot"]}></span>
           <p>{userMetrics.comments} comments</p>
-          <span className={styles["dividing-dot"]}></span>
+          <span className={styles["metrics__dividing-dot"]}></span>
           <p>{userMetrics.views} views</p>
         </div>
       </div>

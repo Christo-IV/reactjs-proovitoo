@@ -61,7 +61,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <div className="container flex">
         <div className="posts flex">
           <SearchBox posts={posts} setFilteredPosts={setFilteredPosts} />
