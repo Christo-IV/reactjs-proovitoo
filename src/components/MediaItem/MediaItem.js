@@ -3,8 +3,18 @@ import { format, add } from "date-fns";
 
 export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
   const mediaItemDate = new Date(date);
-
   const tomorrowFns = add(new Date(), { days: 1 });
+
+  const specialKeywords = {
+    Going: going,
+    Tomorrow: tomorrowFns.toDateString() === mediaItemDate.toDateString(),
+  };
+
+  const getSpecialKeywords = () => {
+    return Object.keys(specialKeywords).filter((keyword) => {
+      return specialKeywords[keyword];
+    });
+  };
 
   return (
     <div className={`${styles["mediaItem"]} flex`}>
@@ -17,34 +27,21 @@ export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
       <div className={`${styles["content"]} flex`}>
         <h3 className={styles["name"]}>{name}</h3>
         <ul className={`${styles["keywords"]} flex`}>
-          {keywords.map((keyword, index) => (
+          {[...keywords, ...getSpecialKeywords()].map((keyword, index) => (
             <>
-              {index % 2 === 1 && (
-                <span className={styles["dividing-dot"]}></span>
-              )}
-              <li className={`${styles["keyword"]} flex`} key={name + index}>
+              {index > 0 && <span className={styles["dividing-dot"]}></span>}
+              <li
+                className={`${styles["keyword"]} ${
+                  styles[keyword.toLowerCase()] ?? ""
+                } flex`}
+                key={name + index}
+              >
                 {keyword === "mediaDate"
                   ? format(mediaItemDate, "LLL dd")
                   : keyword}
               </li>
             </>
           ))}
-          {going && (
-            <>
-              <span className={styles["dividing-dot"]}></span>
-              <li className={`${styles["keyword"]} ${styles["success"]}`}>
-                Going
-              </li>
-            </>
-          )}
-          {tomorrowFns.toDateString() === mediaItemDate.toDateString() && (
-            <>
-              <span className={styles["dividing-dot"]}></span>
-              <li className={`${styles["keyword"]} ${styles["danger"]}`}>
-                Tomorrow
-              </li>
-            </>
-          )}
         </ul>
       </div>
     </div>
