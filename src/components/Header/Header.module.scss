@@ -1,0 +1,14 @@
+@use "/src/styles/colors";
+
+.header {
+  width: 100%;
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+
+  .divider {
+    display: block;
+    margin: 0.5rem 0;
+    height: 1px;
+    background-color: colors.$faded-txt;
+  }
+}

@@ -1,10 +1,10 @@
-import "./Header.css";
+import styles from "./Header.module.scss";
 
 export const Header = ({ title }) => {
   return (
-    <div className="header">
-      <h2 className="heading">{title}</h2>
-      <span className="divider"></span>
+    <div className={styles["header"]}>
+      <h2>{title}</h2>
+      <span className={styles["divider"]}></span>
     </div>
   );
 };
