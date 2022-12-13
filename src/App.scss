@@ -1,13 +1,20 @@
+@use "styles/colors";
+@use "styles/variables";
+
 .flex {
   display: flex;
   flex-direction: column;
 }
 
 .container {
-  width: min(100%, 1300px);
+  width: variables.$max-container-width;
   margin: 7rem auto 0;
   padding: 1rem;
   gap: 2.2rem;
+
+  @media only screen and (min-width: 800px) {
+    flex-direction: row;
+  }
 }
 
 .posts {
@@ -22,14 +29,4 @@
 
 .collection {
   gap: 1.5rem;
-}
-
-@media only screen and (min-width: 800px) {
-  .container {
-    flex-direction: row;
-  }
-
-  .collections {
-    width: 66%;
-  }
 }

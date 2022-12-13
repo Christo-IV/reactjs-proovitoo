@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import "./SearchBox.css";
 import { SinglePost } from "../Post/Post";
 import React, { Dispatch, SetStateAction } from "react";
+import styles from "./SearchBox.module.scss";
 
 interface SearchBoxProps {
   posts: SinglePost[];
@@ -28,14 +28,18 @@ export const SearchBox = ({ posts, setFilteredPosts }: SearchBoxProps) => {
   };
 
   return (
-    <form className="search-box flex" onSubmit={handleSubmit}>
+    <form className={`${styles["search-box"]} flex`} onSubmit={handleSubmit}>
       <input
         ref={searchInput}
         type="text"
-        className="text-input"
+        className={styles["text-input"]}
         aria-label="Enter search text"
       />
-      <button className="search-btn" aria-label="Search" type="submit"></button>
+      <button
+        className={styles["search-btn"]}
+        aria-label="Search"
+        type="submit"
+      ></button>
     </form>
   );
 };

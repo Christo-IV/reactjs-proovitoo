@@ -1,0 +1,24 @@
+@use "colors";
+@use "font";
+
+:root {
+  font-size: font.$size;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  background-color: colors.$body;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  color: colors.$dark-txt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import styles from "./Header.module.scss";
 
 interface HeaderProps {
   title: string;
@@ -7,9 +7,9 @@ interface HeaderProps {
 
 export const Header = ({ title }: HeaderProps) => {
   return (
-    <div className="header">
-      <h2 className="heading">{title}</h2>
-      <span className="divider"></span>
+    <div className={styles["header"]}>
+      <h2>{title}</h2>
+      <span className={styles["divider"]}></span>
     </div>
   );
 };
