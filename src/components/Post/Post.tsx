@@ -1,11 +1,11 @@
 import React from "react";
 import "./Post.css";
 
-interface props {
-  post: IPost;
+interface PostProps {
+  post: SinglePost;
 }
 
-export interface IPost {
+export interface SinglePost {
   id: number;
   imgUrl: string;
   imgAlt: string;
@@ -21,7 +21,7 @@ export interface IPost {
   };
 }
 
-export const Post = ({ post }: props) => {
+export const Post = ({ post }: PostProps) => {
   const { imgUrl, imgAlt, title, author, date, text, tags, userMetrics } = post;
 
   return (

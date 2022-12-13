@@ -1,14 +1,14 @@
 import { useRef } from "react";
 import "./SearchBox.css";
-import { IPost } from "../Post/Post";
+import { SinglePost } from "../Post/Post";
 import React, { Dispatch, SetStateAction } from "react";
 
-interface ISearchBox {
-  posts: IPost[];
-  setFilteredPosts: Dispatch<SetStateAction<IPost[] | undefined>>;
+interface SearchBoxProps {
+  posts: SinglePost[];
+  setFilteredPosts: Dispatch<SetStateAction<SinglePost[] | undefined>>;
 }
 
-export const SearchBox = ({ posts, setFilteredPosts }: ISearchBox) => {
+export const SearchBox = ({ posts, setFilteredPosts }: SearchBoxProps) => {
   const searchInput = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (event: React.SyntheticEvent) => {

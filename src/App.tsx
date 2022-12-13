@@ -1,32 +1,32 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar/Navbar";
-import { Post, IPost } from "./components/Post/Post";
+import { Post, SinglePost } from "./components/Post/Post";
 import { Header } from "./components/Header/Header";
-import { MediaItem, IMediaItem } from "./components/MediaItem/MediaItem";
+import { MediaItem, Item } from "./components/MediaItem/MediaItem";
 import {
   LatestComment,
-  ILatestComment,
+  Comment,
 } from "./components/LatestComment/LatestComment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
 import React, { Dispatch } from "react";
 
-interface IPostsWithComments {
-  [key: string]: ILatestComment[];
+interface PostsWithComments {
+  [key: string]: Comment[];
 }
 
 export const App = () => {
-  const [posts, setPosts] = useState<IPost[]>([]);
-  const [filteredPosts, setFilteredPosts] = useState<IPost[] | undefined>(
+  const [posts, setPosts] = useState<SinglePost[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<SinglePost[] | undefined>(
     undefined
   );
-  const [events, setEvents] = useState<IMediaItem[]>([]);
-  const [birthdays, setBirthdays] = useState<IMediaItem[]>([]);
-  const [newcomers, setNewcomers] = useState<IMediaItem[]>([]);
-  const [latestComments, setLatestComments] = useState<ILatestComment[]>([]);
-  const [postsWithComments, setPostsWithComments] = useState<
-    IPostsWithComments
-  >({});
+  const [events, setEvents] = useState<Item[]>([]);
+  const [birthdays, setBirthdays] = useState<Item[]>([]);
+  const [newcomers, setNewcomers] = useState<Item[]>([]);
+  const [latestComments, setLatestComments] = useState<Comment[]>([]);
+  const [postsWithComments, setPostsWithComments] = useState<PostsWithComments>(
+    {}
+  );
 
   const getData = async <String, T>(
     filename: String,
@@ -55,11 +55,11 @@ export const App = () => {
   useEffect(() => {
     // Gets all post titles
     const allPostsWithComments = latestComments.map(
-      (comment: ILatestComment) => comment.postTitle
+      (comment: Comment) => comment.postTitle
     );
 
     // Creates keys for all post titles
-    const commentsByPost: IPostsWithComments = {};
+    const commentsByPost: PostsWithComments = {};
     allPostsWithComments.forEach((title: string) => {
       commentsByPost[title] = [];
     });
@@ -80,7 +80,7 @@ export const App = () => {
       <div className="container flex">
         <div className="posts flex">
           <SearchBox posts={posts} setFilteredPosts={setFilteredPosts} />
-          {(filteredPosts ?? posts).map((post: IPost, index: number) => (
+          {(filteredPosts ?? posts).map((post: SinglePost, index: number) => (
             <Post post={post} key={index} />
           ))}
         </div>
@@ -109,7 +109,7 @@ export const App = () => {
               <div key={title}>
                 <p className="comment-title">{title}</p>
                 {postsWithComments[title].map(
-                  (comment: ILatestComment, index: number) => (
+                  (comment: Comment, index: number) => (
                     <LatestComment comment={comment} key={index} />
                   )
                 )}

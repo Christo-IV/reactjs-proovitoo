@@ -2,11 +2,11 @@ import "./MediaItem.css";
 import { format, add } from "date-fns";
 import React from "react";
 
-interface Props {
-  mediaItem: IMediaItem;
+interface MediaItemProps {
+  mediaItem: Item;
 }
 
-export interface IMediaItem {
+export interface Item {
   name: string;
   type: string;
   imgUrl: string;
@@ -15,7 +15,7 @@ export interface IMediaItem {
   going: boolean;
 }
 
-export const MediaItem = ({ mediaItem }: Props) => {
+export const MediaItem = ({ mediaItem }: MediaItemProps) => {
   const { name, type, imgUrl, keywords, date, going } = mediaItem;
 
   const mediaItemDate = new Date(date);
