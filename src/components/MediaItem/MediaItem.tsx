@@ -21,7 +21,9 @@ export const MediaItem = ({ mediaItem }: MediaItemProps) => {
   const mediaItemDate = new Date(date);
   const tomorrowFns = add(new Date(), { days: 1 });
 
-  const specialKeywords = {
+  const specialKeywords: {
+    [key: string]: boolean;
+  } = {
     Going: going,
     Tomorrow: tomorrowFns.toDateString() === mediaItemDate.toDateString(),
   };
