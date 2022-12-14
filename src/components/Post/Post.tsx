@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Post.module.scss";
+import { format } from "date-fns";
 
 interface PostProps {
   post: SinglePost;
@@ -30,7 +31,7 @@ export const Post = ({ post }: PostProps) => {
       <div className={`${styles["content"]} flex`}>
         <h2 className={styles["title"]}>{title}</h2>
         <p className={styles["published"]}>
-          Published by {author} on {date}
+          Published by {author} on {format(new Date(date), "LLL dd, yyyy")}
         </p>
         <p className={styles["text"]}>{text}</p>
         <ul className={`${styles["tags"]} flex`}>
