@@ -1,7 +1,7 @@
-import styles from "./LatestComment.module.scss";
+import styles from "./Comment.module.scss";
 import { format } from "date-fns";
 
-export const LatestComment = ({ comment }) => {
+export const Comment = ({ comment }) => {
   const { text, date, author } = comment;
 
   return (

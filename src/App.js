@@ -4,7 +4,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { Post } from "./components/Post/Post";
 import { Header } from "./components/Header/Header";
 import { MediaItem } from "./components/MediaItem/MediaItem";
-import { LatestComment } from "./components/LatestComment/LatestComment";
+import { Comment } from "./components/Comment/Comment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
 
 const App = () => {
@@ -96,7 +96,7 @@ const App = () => {
               <div key={title}>
                 <p className="comment-title">{title}</p>
                 {postsWithComments[title].map((comment, index) => (
-                  <LatestComment comment={comment} key={index} />
+                  <Comment comment={comment} key={index} />
                 ))}
               </div>
             ))}
