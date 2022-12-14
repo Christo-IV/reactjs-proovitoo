@@ -6,6 +6,7 @@ import { Header } from "./components/Header/Header";
 import { MediaItem } from "./components/MediaItem/MediaItem";
 import { LatestComment } from "./components/LatestComment/LatestComment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
+import axios from "axios";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -30,11 +31,16 @@ const App = () => {
   };
 
   useEffect(() => {
-    getData("posts", setPosts);
     getData("events", setEvents);
     getData("birthdays", setBirthdays);
     getData("newcomers", setNewcomers);
     getData("comments", setLatestComments);
+
+    axios
+      .get("https://61d6a18b35f71e0017c2e716.mockapi.io/Posts")
+      .then((response) => {
+        setPosts(response.data);
+      });
   }, []);
 
   useEffect(() => {
