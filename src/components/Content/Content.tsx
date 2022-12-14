@@ -1,8 +1,25 @@
 import styles from "./Content.module.scss";
 import { format } from "date-fns";
 import classnames from "classnames";
+import React from "react";
 
-export const Content = ({ header, author, date, text, tags, keywords }) => {
+interface ContentProps {
+  header: string;
+  author?: string;
+  date: string;
+  text?: string;
+  tags?: string[];
+  keywords: string[];
+}
+
+export const Content = ({
+  header,
+  author,
+  date,
+  text,
+  tags,
+  keywords,
+}: ContentProps) => {
   return (
     <div
       className={classnames(styles["content"], "flex", {

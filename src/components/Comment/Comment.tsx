@@ -1,7 +1,19 @@
 import styles from "./Comment.module.scss";
 import { format } from "date-fns";
+import React from "react";
 
-export const Comment = ({ comment }) => {
+interface CommentProps {
+  comment: SingleComment;
+}
+
+export interface SingleComment {
+  text: string;
+  date: string;
+  author: string;
+  postTitle: string;
+}
+
+export const Comment = ({ comment }: CommentProps) => {
   const { text, date, author } = comment;
 
   return (

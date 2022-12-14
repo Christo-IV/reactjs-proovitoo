@@ -1,11 +1,12 @@
 import styles from "./Navbar.module.scss";
 import { useState } from "react";
+import React from "react";
 import classNames from "classnames";
 
 export const Navbar = () => {
-  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState<Boolean>(false);
 
-  const toggleDropdown = () => {
+  const toggleDropdown = (): void => {
     setIsNavMenuOpen(!isNavMenuOpen);
   };
 
