@@ -1,6 +1,11 @@
+import React from "react";
 import styles from "./Header.module.scss";
 
-export const Header = ({ title }) => {
+interface HeaderProps {
+  title: string;
+}
+
+export const Header = ({ title }: HeaderProps) => {
   return (
     <div className={styles["header"]}>
       <h2>{title}</h2>

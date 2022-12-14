@@ -1,7 +1,25 @@
+import React from "react";
 import styles from "./Post.module.scss";
 import { format } from "date-fns";
 
-export const Post = ({ post }) => {
+interface PostProps {
+  post: SinglePost;
+}
+
+export interface SinglePost {
+  id: number;
+  image: string;
+  title: string;
+  author: string;
+  createdAt: string;
+  content: string;
+  tags: string[];
+  likes: number;
+  comments: number;
+  views: number;
+}
+
+export const Post = ({ post }: PostProps) => {
   const {
     image,
     title,

@@ -1,7 +1,19 @@
+import React from "react";
 import styles from "./LatestComment.module.scss";
 import { format } from "date-fns";
 
-export const LatestComment = ({ comment }) => {
+interface LatestCommentProps {
+  comment: Comment;
+}
+
+export interface Comment {
+  text: string;
+  date: string;
+  author: string;
+  postTitle: string;
+}
+
+export const LatestComment = ({ comment }: LatestCommentProps) => {
   const { text, date, author } = comment;
 
   return (

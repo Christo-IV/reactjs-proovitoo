@@ -1,11 +1,29 @@
 import styles from "./MediaItem.module.scss";
 import { format, add } from "date-fns";
+import React from "react";
 
-export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
+interface MediaItemProps {
+  mediaItem: Item;
+}
+
+export interface Item {
+  name: string;
+  type: string;
+  imgUrl: string;
+  keywords: string[];
+  date: string;
+  going: boolean;
+}
+
+export const MediaItem = ({ mediaItem }: MediaItemProps) => {
+  const { name, type, imgUrl, keywords, date, going } = mediaItem;
+
   const mediaItemDate = new Date(date);
   const tomorrowFns = add(new Date(), { days: 1 });
 
-  const specialKeywords = {
+  const specialKeywords: {
+    [key: string]: boolean;
+  } = {
     Going: going,
     Tomorrow: tomorrowFns.toDateString() === mediaItemDate.toDateString(),
   };
