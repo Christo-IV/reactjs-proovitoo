@@ -1,4 +1,5 @@
 import styles from "./Post.module.scss";
+import { format } from "date-fns";
 
 export const Post = ({ post }) => {
   const { imgUrl, imgAlt, title, author, date, text, tags, userMetrics } = post;
@@ -9,7 +10,7 @@ export const Post = ({ post }) => {
       <div className={`${styles["content"]} flex`}>
         <h2 className={styles["content__title"]}>{title}</h2>
         <p className={styles["content__published"]}>
-          Published by {author} on {date}
+          Published by {author} on {format(new Date(date), "LLL dd, yyyy")}
         </p>
         <p className={styles["content__text"]}>{text}</p>
         <ul className={`${styles["content__tags"]} flex`}>

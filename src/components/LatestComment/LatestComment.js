@@ -1,15 +1,16 @@
 import styles from "./LatestComment.module.scss";
+import { format } from "date-fns";
 
 export const LatestComment = ({ comment }) => {
   const { text, date, author } = comment;
-  const commentDate = new Date(date).toDateString().split(" ");
 
   return (
     <div className={styles["comment"]}>
       <p>{text}</p>
-      <p
-        className={styles["comment__posted-on"]}
-      >{`${commentDate[1]} ${commentDate[2]} by ${author}`}</p>
+      <p className={styles["comment__posted-on"]}>{`${format(
+        new Date(date),
+        "LLL dd"
+      )} by ${author}`}</p>
     </div>
   );
 };
