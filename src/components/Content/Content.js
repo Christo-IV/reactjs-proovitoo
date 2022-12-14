@@ -1,12 +1,21 @@
 import styles from "./Content.module.scss";
 import { format } from "date-fns";
+import classnames from "classnames";
 
 export const Content = ({ header, author, date, text, tags, keywords }) => {
-  const modifier = text || tags ? "--big" : "";
-
   return (
-    <div className={`${styles[`content${modifier}`]} flex`}>
-      <h2 className={styles[`content__header${modifier}`]}>{header}</h2>
+    <div
+      className={classnames(styles["content"], "flex", {
+        [styles["content--big"]]: text || tags,
+      })}
+    >
+      <h2
+        className={classnames(styles[`content__header`], {
+          [styles[`content__header--big`]]: text || tags,
+        })}
+      >
+        {header}
+      </h2>
       {author && date && (
         <p className={styles["content__published"]}>
           Published by {author} on {format(new Date(date), "LLL dd, yyyy")}
