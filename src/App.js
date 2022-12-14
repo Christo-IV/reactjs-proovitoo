@@ -6,6 +6,7 @@ import { Header } from "./components/Header/Header";
 import { MediaItem } from "./components/MediaItem/MediaItem";
 import { LatestComment } from "./components/LatestComment/LatestComment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
+import { api } from "./api/api";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -30,11 +31,14 @@ const App = () => {
   };
 
   useEffect(() => {
-    getData("posts", setPosts);
     getData("events", setEvents);
     getData("birthdays", setBirthdays);
     getData("newcomers", setNewcomers);
     getData("comments", setLatestComments);
+
+    api.get("/Posts").then((response) => {
+      setPosts(response.data);
+    });
   }, []);
 
   useEffect(() => {
