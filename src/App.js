@@ -8,6 +8,10 @@ import { LatestComment } from "./components/LatestComment/LatestComment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
 import axios from "axios";
 
+export const api = axios.create({
+  baseURL: "https://61d6a18b35f71e0017c2e716.mockapi.io",
+});
+
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState(undefined);
@@ -36,11 +40,9 @@ const App = () => {
     getData("newcomers", setNewcomers);
     getData("comments", setLatestComments);
 
-    axios
-      .get("https://61d6a18b35f71e0017c2e716.mockapi.io/Posts")
-      .then((response) => {
-        setPosts(response.data);
-      });
+    api.get("/Posts").then((response) => {
+      setPosts(response.data);
+    });
   }, []);
 
   useEffect(() => {
