@@ -1,5 +1,6 @@
 import styles from "./MediaItem.module.scss";
 import { format, add } from "date-fns";
+import { Content } from "../Content/Content";
 
 export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
   const mediaItemDate = new Date(date);
@@ -24,28 +25,11 @@ export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
         </p>
         {imgUrl && <img src={imgUrl} alt={name} />}
       </div>
-      <div className={`${styles["content"]} flex`}>
-        <h3 className={styles["content__name"]}>{name}</h3>
-        <ul className={`${styles["keywords"]} flex`}>
-          {[...keywords, ...getSpecialKeywords()].map((keyword, index) => (
-            <>
-              {index > 0 && (
-                <span className={styles["keywords__dividing-dot"]}></span>
-              )}
-              <li
-                className={
-                  styles["keywords__keyword--" + keyword.toLowerCase()]
-                }
-                key={name + index}
-              >
-                {keyword === "mediaDate"
-                  ? format(mediaItemDate, "LLL dd")
-                  : keyword}
-              </li>
-            </>
-          ))}
-        </ul>
-      </div>
+      <Content
+        keywords={[...keywords, ...getSpecialKeywords()]}
+        header={name}
+        date={date}
+      />
     </div>
   );
 };

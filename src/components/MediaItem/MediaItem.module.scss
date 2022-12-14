@@ -6,15 +6,6 @@
   gap: 1.5rem;
 }
 
-.content {
-  gap: 0.25rem;
-
-  &__name {
-    font-weight: 500;
-    font-size: 1.125rem;
-  }
-}
-
 .img {
   position: relative;
   width: 4rem;
@@ -41,41 +32,6 @@
   @each $event, $color in colors.$events {
     &--#{$event} {
       box-shadow: inset 0 0 0 0.125rem #{$color};
-    }
-  }
-}
-
-.keywords {
-  flex-direction: row;
-  align-items: center;
-  color: var(--faded-txt-color);
-  font-size: 1rem;
-  max-width: 100%;
-  flex-wrap: wrap;
-
-  &__dividing-dot {
-    background-color: colors.$faded-txt;
-    display: inline-block;
-    height: 0.25rem;
-    width: 0.25rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    margin: 0 0.75rem;
-
-    @media only screen and (min-width: 800px) {
-      &:nth-of-type(3) {
-        opacity: 0;
-      }
-    }
-  }
-
-  &__keyword {
-    &--tomorrow {
-      color: colors.$danger;
-    }
-
-    &--going {
-      color: colors.$success;
     }
   }
 }
