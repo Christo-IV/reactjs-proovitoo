@@ -12,40 +12,40 @@ export const Navbar = () => {
   return (
     <nav className={`${styles["navbar"]} flex`}>
       <button
-        className={classNames(` ${styles["toggle"]} flex`, {
-          [styles["toggle--is-open"]]: isNavMenuOpen,
+        className={classNames(` ${styles["navbar__toggle"]} flex`, {
+          [styles["navbar__toggle--is-open"]]: isNavMenuOpen,
         })}
         onClick={toggleDropdown}
       >
-        <div className={`${styles["hamburger"]} flex`}>
-          <span className={styles["hamburger__line"]}></span>
-          <span className={styles["hamburger__line"]}></span>
-          <span className={styles["hamburger__line"]}></span>
+        <div className={`${styles["navbar__hamburger"]} flex`}>
+          <span className={styles["navbar__line"]}></span>
+          <span className={styles["navbar__line"]}></span>
+          <span className={styles["navbar__line"]}></span>
         </div>
-        <p className={styles["toggle__text"]}>Menu</p>
+        <p className={styles["navbar__text"]}>Menu</p>
       </button>
-      <ul className={styles["links"]}>
+      <ul className={styles["navbar__links"]}>
         <li>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className={styles["links__link"]} href="#">
+          <a className={styles["navbar__link"]} href="#">
             Home
           </a>
         </li>
         <li>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className={styles["links__link"]} href="#">
+          <a className={styles["navbar__link"]} href="#">
             Blog
           </a>
         </li>
         <li>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className={styles["links__link"]} href="#">
+          <a className={styles["navbar__link"]} href="#">
             Events
           </a>
         </li>
         <li>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className={styles["links__link"]} href="#">
+          <a className={styles["navbar__link"]} href="#">
             Gallery
           </a>
         </li>
