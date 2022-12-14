@@ -26,35 +26,33 @@
     line-height: 1.5rem;
   }
 
-  &__published,
-  &__tags,
-  &__keywords {
+  %faded-txt-color {
     color: colors.$faded-txt;
   }
 
-  &__published,
-  &__tags {
-    font-size: 1rem;
-    line-height: 1.1875rem;
+  &__published {
+    @extend %faded-txt-color;
   }
 
   &__tags {
+    @extend %faded-txt-color;
     flex-direction: row;
     align-items: center;
     gap: 0.75rem;
   }
 
-  &__divider,
-  &__dividing-dot {
+  %faded-bg-color {
     background-color: colors.$faded-txt;
   }
 
   &__divider {
+    @extend %faded-bg-color;
     height: 1px;
     width: 100%;
   }
 
   &__keywords {
+    @extend %faded-txt-color;
     flex-direction: row;
     align-items: center;
     font-size: 1rem;
@@ -63,6 +61,7 @@
   }
 
   &__dividing-dot {
+    @extend %faded-bg-color;
     display: inline-block;
     height: 0.25rem;
     width: 0.25rem;
