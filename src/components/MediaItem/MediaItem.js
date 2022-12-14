@@ -18,7 +18,7 @@ export const MediaItem = ({ name, type, imgUrl, keywords, date, going }) => {
 
   return (
     <div className={`${styles["mediaItem"]} flex`}>
-      <div className={`${styles["img"]} flex ${styles["img--" + type]}`}>
+      <div className={`${styles["img"]} flex ${styles[`img--${type}`]}`}>
         <p className={`${styles["img__date"]} flex`}>
           {format(mediaItemDate, "dd LLL")}
         </p>
