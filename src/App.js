@@ -6,11 +6,7 @@ import { Header } from "./components/Header/Header";
 import { MediaItem } from "./components/MediaItem/MediaItem";
 import { LatestComment } from "./components/LatestComment/LatestComment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
-import axios from "axios";
-
-export const api = axios.create({
-  baseURL: "https://61d6a18b35f71e0017c2e716.mockapi.io",
-});
+import { api } from "./api/api";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
