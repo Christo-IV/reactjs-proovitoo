@@ -53,6 +53,11 @@
   line-height: 1.5rem;
 }
 
+.tags {
+  flex-wrap: wrap;
+  line-height: 0.75rem;
+}
+
 .tags,
 .user-metrics {
   flex-direction: row;

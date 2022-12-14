@@ -10,6 +10,7 @@ import {
 } from "./components/LatestComment/LatestComment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
 import React, { Dispatch } from "react";
+import { api } from "./api/api";
 
 interface PostsWithComments {
   [key: string]: Comment[];
@@ -45,11 +46,14 @@ export const App = () => {
   };
 
   useEffect(() => {
-    getData("posts", setPosts);
     getData("events", setEvents);
     getData("birthdays", setBirthdays);
     getData("newcomers", setNewcomers);
     getData("comments", setLatestComments);
+
+    api.get("/Posts").then((response) => {
+      setPosts(response.data);
+    });
   }, []);
 
   useEffect(() => {
