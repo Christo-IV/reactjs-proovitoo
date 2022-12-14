@@ -44,7 +44,7 @@ export const Content = ({ header, author, date, text, tags, keywords }) => {
                 ></span>
               )}
               <li
-                className={styles["content__keyword--" + keyword.toLowerCase()]}
+                className={styles[`content__keyword--${keyword.toLowerCase()}`]}
                 key={`${header}-${keyword}`}
               >
                 {date && keyword === "mediaDate"
