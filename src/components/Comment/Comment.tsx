@@ -1,25 +1,25 @@
-import React from "react";
-import styles from "./LatestComment.module.scss";
+import styles from "./Comment.module.scss";
 import { format } from "date-fns";
+import React from "react";
 
-interface LatestCommentProps {
-  comment: Comment;
+interface CommentProps {
+  comment: SingleComment;
 }
 
-export interface Comment {
+export interface SingleComment {
   text: string;
   date: string;
   author: string;
   postTitle: string;
 }
 
-export const LatestComment = ({ comment }: LatestCommentProps) => {
+export const Comment = ({ comment }: CommentProps) => {
   const { text, date, author } = comment;
 
   return (
     <div className={styles["comment"]}>
       <p>{text}</p>
-      <p className={styles["posted-on"]}>{`${format(
+      <p className={styles["comment__posted-on"]}>{`${format(
         new Date(date),
         "LLL dd"
       )} by ${author}`}</p>

@@ -1,29 +1,24 @@
 @use "/src/styles/colors";
 
-.search-box {
+.search {
   flex-direction: row;
   border-radius: 0.25rem;
   box-shadow: 0 0 0 0.125rem colors.$bright-border;
   overflow: hidden;
-}
 
-.text-input,
-.search-btn {
-  border: 0;
-}
+  &__text-input {
+    flex: 1 0 auto;
+    padding: 1rem;
+    background-color: colors.$background;
+  }
 
-.text-input {
-  flex: 1 0 auto;
-  padding: 1rem;
-  background-color: colors.$background;
-}
-
-.search-btn {
-  flex: 0 0 4rem;
-  background-color: colors.$primary;
-  background-image: url("/icons/search.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 4rem;
-  cursor: pointer;
+  &__button {
+    flex: 0 0 4rem;
+    background-color: colors.$primary;
+    background-image: url("/icons/search.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 4rem;
+    cursor: pointer;
+  }
 }

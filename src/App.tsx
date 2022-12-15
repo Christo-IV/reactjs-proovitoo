@@ -4,16 +4,13 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { Post, SinglePost } from "./components/Post/Post";
 import { Header } from "./components/Header/Header";
 import { MediaItem, Item } from "./components/MediaItem/MediaItem";
-import {
-  LatestComment,
-  Comment,
-} from "./components/LatestComment/LatestComment";
+import { SingleComment, Comment } from "./components/Comment/Comment";
 import { SearchBox } from "./components/SearchBox/SearchBox";
 import React, { Dispatch } from "react";
 import { api } from "./api/api";
 
 interface PostsWithComments {
-  [key: string]: Comment[];
+  [key: string]: SingleComment[];
 }
 
 export const App = () => {
@@ -24,7 +21,7 @@ export const App = () => {
   const [events, setEvents] = useState<Item[]>([]);
   const [birthdays, setBirthdays] = useState<Item[]>([]);
   const [newcomers, setNewcomers] = useState<Item[]>([]);
-  const [latestComments, setLatestComments] = useState<Comment[]>([]);
+  const [latestComments, setLatestComments] = useState<SingleComment[]>([]);
   const [postsWithComments, setPostsWithComments] = useState<PostsWithComments>(
     {}
   );
@@ -59,7 +56,7 @@ export const App = () => {
   useEffect(() => {
     // Gets all post titles
     const allPostsWithComments = latestComments.map(
-      (comment: Comment) => comment.postTitle
+      (comment: SingleComment) => comment.postTitle
     );
 
     // Creates keys for all post titles
@@ -80,7 +77,9 @@ export const App = () => {
 
   return (
     <div className="App">
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <div className="container flex">
         <div className="posts flex">
           <SearchBox posts={posts} setFilteredPosts={setFilteredPosts} />
@@ -113,8 +112,8 @@ export const App = () => {
               <div key={title}>
                 <p className="comment-title">{title}</p>
                 {postsWithComments[title].map(
-                  (comment: Comment, index: number) => (
-                    <LatestComment comment={comment} key={index} />
+                  (comment: SingleComment, index: number) => (
+                    <Comment comment={comment} key={index} />
                   )
                 )}
               </div>

@@ -11,42 +11,46 @@ export const Navbar = () => {
   };
 
   return (
-    <header>
-      <nav className={`${styles["navbar"]} flex`}>
-        <div className={styles["nav-content"]}>
-          <button
-            className={classNames(` ${styles["hamburger-toggle"]} flex`, {
-              [styles["is-open"]]: isNavMenuOpen,
-            })}
-            onClick={toggleDropdown}
-          >
-            <div className={`${styles["hamburger-lines"]} flex`}>
-              <span className={styles["hamburger-line"]}></span>
-              <span className={styles["hamburger-line"]}></span>
-              <span className={styles["hamburger-line"]}></span>
-            </div>
-            <p className={styles["hamburger-text"]}>Menu</p>
-          </button>
-          <ul className={styles["nav-links"]}>
-            <li className={styles["nav-link"]}>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a href="#">Home</a>
-            </li>
-            <li className={styles["nav-link"]}>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a href="#">Blog</a>
-            </li>
-            <li className={styles["nav-link"]}>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a href="#">Events</a>
-            </li>
-            <li className={styles["nav-link"]}>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a href="#">Gallery</a>
-            </li>
-          </ul>
+    <nav className={`${styles["navbar"]} flex`}>
+      <button
+        className={classNames(` ${styles["navbar__toggle"]} flex`, {
+          [styles["navbar__toggle--is-open"]]: isNavMenuOpen,
+        })}
+        onClick={toggleDropdown}
+      >
+        <div className={`${styles["navbar__hamburger"]} flex`}>
+          <span className={styles["navbar__line"]}></span>
+          <span className={styles["navbar__line"]}></span>
+          <span className={styles["navbar__line"]}></span>
         </div>
-      </nav>
-    </header>
+        <p className={styles["navbar__text"]}>Menu</p>
+      </button>
+      <ul className={styles["navbar__links"]}>
+        <li>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a className={styles["navbar__link"]} href="#">
+            Home
+          </a>
+        </li>
+        <li>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a className={styles["navbar__link"]} href="#">
+            Blog
+          </a>
+        </li>
+        <li>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a className={styles["navbar__link"]} href="#">
+            Events
+          </a>
+        </li>
+        <li>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a className={styles["navbar__link"]} href="#">
+            Gallery
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
 };

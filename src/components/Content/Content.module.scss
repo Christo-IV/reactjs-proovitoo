@@ -1,0 +1,89 @@
+@use "/src/styles/colors";
+
+.content {
+  gap: 0.25rem;
+
+  &--big {
+    padding: 1rem;
+    gap: 1.1875rem;
+  }
+
+  &__header {
+    font-weight: 500;
+    font-size: 1.125rem;
+
+    &--big {
+      font-family: "Roboto Slab", serif;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 2.625rem;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+
+  %faded-txt-color {
+    color: colors.$faded-txt;
+  }
+
+  &__published {
+    @extend %faded-txt-color;
+  }
+
+  &__tags {
+    @extend %faded-txt-color;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  %faded-bg-color {
+    background-color: colors.$faded-txt;
+  }
+
+  &__divider {
+    @extend %faded-bg-color;
+    height: 1px;
+    width: 100%;
+  }
+
+  &__keywords {
+    @extend %faded-txt-color;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1rem;
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  &__dividing-dot {
+    @extend %faded-bg-color;
+    display: inline-block;
+    height: 0.25rem;
+    width: 0.25rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin: 0 0.75rem;
+
+    @media only screen and (min-width: 800px) {
+      &:nth-of-type(3) {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__keyword {
+    &--tomorrow {
+      color: colors.$danger;
+    }
+
+    &--going {
+      color: colors.$success;
+    }
+  }
+}

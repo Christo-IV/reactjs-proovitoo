@@ -1,31 +1,9 @@
 @use "/src/styles/colors";
 
-.mediaItem {
+.media-item {
   flex-direction: row;
   align-items: center;
   gap: 1.5rem;
-
-  @each $event, $color in colors.$events {
-    .#{$event} {
-      box-shadow: inset 0 0 0 0.125rem #{$color};
-    }
-  }
-
-  .dividing-dot {
-    background-color: colors.$faded-txt;
-    display: inline-block;
-    height: 0.25rem;
-    width: 0.25rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    margin: 0 0.75rem;
-
-    @media only screen and (min-width: 800px) {
-      &:nth-of-type(3) {
-        opacity: 0;
-      }
-    }
-  }
 }
 
 .img {
@@ -35,53 +13,25 @@
   aspect-ratio: 1;
   border-radius: 50%;
 
-  & > * {
-    border-radius: 50%;
-  }
-
   & > img {
-    width: inherit;
     z-index: 10;
-  }
-}
-
-.content {
-  gap: 0.25rem;
-}
-
-.name,
-.date {
-  font-weight: 500;
-  font-size: 1.125rem;
-}
-
-.date {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  line-height: 100%;
-}
-
-.keywords {
-  flex-direction: row;
-  align-items: center;
-  color: var(--faded-txt-color);
-  font-size: 1rem;
-  max-width: 100%;
-  flex-wrap: wrap;
-}
-
-.keyword {
-  flex-direction: inherit;
-  align-items: inherit;
-
-  &.tomorrow {
-    color: colors.$danger;
+    border-radius: inherit;
   }
 
-  &.going {
-    color: colors.$success;
+  &__date {
+    font-weight: 500;
+    font-size: 1.125rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 100%;
+  }
+
+  @each $event, $color in colors.$events {
+    &--#{$event} {
+      box-shadow: inset 0 0 0 0.125rem #{$color};
+    }
   }
 }

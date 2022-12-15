@@ -7,9 +7,9 @@
   * + & {
     margin-top: 0.5rem;
   }
-}
 
-.posted-on {
-  margin-top: 0.5rem;
-  color: colors.$faded-txt;
+  &__posted-on {
+    margin-top: 0.5rem;
+    color: colors.$faded-txt;
+  }
 }
